@@ -8,7 +8,7 @@ namespace Pong
 {
     public class Ball
     {
-        private const int SIZE = 10; //Size of the ball
+        private const int SIZE = 20; //Size of the ball
         private const int SPEED = 40; //Speed of the ball
 
         private Graphics graphics;

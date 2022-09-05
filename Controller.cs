@@ -10,8 +10,8 @@ namespace Pong
     {
 
         //Sets the initial position for each ball
-        private const int BALLPOSX = 120;
-        private const int BALLPOSY = 75;
+        private const int BALLPOSX = 825;
+        private const int BALLPOSY = 440;
 
 
         private List<Ball> balls;
