@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pong
 {
-    internal class Paddle
+    public class Paddle
     {
 
     }
