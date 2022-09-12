@@ -13,7 +13,6 @@ namespace Pong
         public Form1()
         {
 
-            //BOUNDARIES.WIDTH CHECK (ACCURACY > OR >=)
             InitializeComponent();
             graphics = CreateGraphics();
 
@@ -24,14 +23,37 @@ namespace Pong
             bufferImage = new Bitmap(width, height);
             bufferGraphics = Graphics.FromImage(bufferImage);
             controller = new Controller(bufferGraphics, width, height);
-            timer1.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            bufferGraphics.FillRectangle(Brushes.White, 0, 0, width, height);
+            bufferGraphics.FillRectangle(Brushes.White, 0, 0, width, height); //Backdrop
             controller.Run();
+
             graphics.DrawImage(bufferImage, 0, 0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            controller.Start();
+            timer1.Enabled = true;
+            button1.Visible = false;
+
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    break;
+                    
+                case Keys.Down:
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

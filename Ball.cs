@@ -10,6 +10,8 @@ namespace Pong
     {
         private const int SIZE = 20; //Size of the ball
         private const int VELOCITY = 40; //Speed of the ball
+        private const int PADHEIGHT =20;
+        private const int PADWIDTH =500;
 
         private Graphics graphics;
         private Brush brush;
@@ -36,7 +38,7 @@ namespace Pong
         }
 
 
-        private void Bounce()
+        public void Bounce()
         {
             if ((position.X <= 0) || (position.X + SIZE >= width))
             {
@@ -49,9 +51,23 @@ namespace Pong
             }
         }
 
-        public void Draw()//Draws the balls onto the Form
+        public void PadBounce(Paddle paddle)
         {
-            graphics.FillEllipse(brush, position.X, position.Y, SIZE, SIZE);
+            if ((position.Y > paddle.PaddlePoint.Y) && (position.Y + SIZE <= paddle.PaddlePoint.Y + PADHEIGHT)
+                && (position.X >= paddle.PaddlePoint.X) && (position.X + SIZE <= paddle.PaddlePoint.X + PADWIDTH))
+
+
+                velocity.Y = velocity.Y * -1;
+                position.X = position.X + velocity.X;
+                position.Y = position.Y + velocity.Y;
+            
+        }
+        
+
+
+        public void Draw()//Draws the ball
+        {
+           graphics.FillEllipse(brush, position.X, position.Y, SIZE, SIZE);
         }
 
 
