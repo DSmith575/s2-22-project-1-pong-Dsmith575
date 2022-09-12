@@ -9,7 +9,7 @@ namespace Pong
     public class Ball
     {
         private const int SIZE = 20; //Size of the ball
-        private const int SPEED = 40; //Speed of the ball
+        private const int VELOCITY = 40; //Speed of the ball
 
         private Graphics graphics;
         private Brush brush;
@@ -24,7 +24,7 @@ namespace Pong
             this.position = position;
             this.width = width;
             this.height = height;
-            velocity = new Point(SPEED, SPEED);
+            velocity = new Point(VELOCITY, VELOCITY);
             brush = new SolidBrush(color);
         }
 
@@ -53,6 +53,9 @@ namespace Pong
         {
             graphics.FillEllipse(brush, position.X, position.Y, SIZE, SIZE);
         }
+
+
+
 
         public Point Velocity
         {

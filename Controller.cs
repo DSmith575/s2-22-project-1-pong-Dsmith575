@@ -13,29 +13,37 @@ namespace Pong
         private const int BALLPOSX = 825;
         private const int BALLPOSY = 440;
 
+        private Graphics graphics;
+        private Ball ball;
 
-        private List<Ball> balls;
+
 
         public Controller(Graphics graphics, int width, int height)
         {
+            this.graphics = graphics;
 
-            //Creates a list of "Ball" and adds a new ball with it's properties
-            balls = new List<Ball>();
-            balls.Add(new Ball(graphics, Color.Red, new Point(BALLPOSX, BALLPOSY), width, height));
+            ball = new Ball(graphics, Color.Black, new Point(BALLPOSX, BALLPOSY), width, height);
         }
 
+        //Move ball around form
+        private void BallBounce()
+        {
+            ball.Draw();
+            ball.Move();
+           
+        }
+
+
+        //Runs on every timer1 tick
         public void Run()
         {
-            foreach (Ball ball in balls)
-            {
-                ball.Move();
-                ball.Draw();
-            }
+            BallBounce();
+            
         }
 
         public void ChangeVelocity(int index, int velocity)
         {
-            balls[index].Velocity = new Point(velocity, velocity);
+            ball.Velocity = new Point(velocity, velocity);
         }
     }
 }
