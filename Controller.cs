@@ -13,7 +13,7 @@ namespace Pong
         private const int BALLPOSX = 825;
         private const int BALLPOSY = 440;
         private const int PADPOSX = 0;
-        private const int PADPOSY = 300;
+        private const int PADPOSY = 200;
 
         private Graphics graphics;
         private Ball ball;

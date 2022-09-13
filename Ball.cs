@@ -9,9 +9,9 @@ namespace Pong
     public class Ball
     {
         private const int SIZE = 20; //Size of the ball
-        private const int VELOCITY = 40; //Speed of the ball
-        private const int PADHEIGHT =20;
-        private const int PADWIDTH =500;
+        private const int VELOCITY = 20; //Speed of the ball
+        private const int PADHEIGHT = 20;
+        private const int PADWIDTH =100;
 
         private Graphics graphics;
         private Brush brush;
