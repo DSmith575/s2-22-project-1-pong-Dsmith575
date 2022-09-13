@@ -14,29 +14,29 @@ namespace Pong
 
         private Graphics graphics;
         private Brush brush;
-        private Point paddlePoint;
+        private Point paddleP;
 
 
 
-        public Paddle(Graphics graphics, Color color, Point paddlePoint)//contructor
+        public Paddle(Graphics graphics, Color color, Point paddleP)
         {
             this.graphics = graphics;
-            this.paddlePoint = paddlePoint;
+            this.paddleP = paddleP;
             brush = new SolidBrush(color);
 
         }
 
-        public void Draw()//draw the paddle to form
+        public void Draw() //Method to draw paddle
         {
-            graphics.FillRectangle(brush, paddlePoint.X, paddlePoint.Y, PADDLEWIDTH, PADDLEHEIGHT);
+            graphics.FillRectangle(brush, paddleP.X, paddleP.Y, PADDLEWIDTH, PADDLEHEIGHT);
         }
 
 
-        public Point PaddlePoint
+        public Point PaddleP
         {
             get
             {
-                return paddlePoint;
+                return paddleP;
             }
         }
     }

@@ -53,8 +53,8 @@ namespace Pong
 
         public void PadBounce(Paddle paddle)
         {
-            if ((position.Y > paddle.PaddlePoint.Y) && (position.Y + SIZE <= paddle.PaddlePoint.Y + PADHEIGHT)
-                && (position.X >= paddle.PaddlePoint.X) && (position.X + SIZE <= paddle.PaddlePoint.X + PADWIDTH))
+            if ((position.Y > paddle.PaddleP.Y) && (position.Y + SIZE <= paddle.PaddleP.Y + PADHEIGHT)
+                && (position.X >= paddle.PaddleP.X) && (position.X + SIZE <= paddle.PaddleP.X + PADWIDTH))
 
 
                 velocity.Y = velocity.Y * -1;
