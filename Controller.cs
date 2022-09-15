@@ -10,8 +10,8 @@ namespace Pong
     {
 
         //Sets the initial position for each ball
-        private const int BALLPOSX = 825;
-        private const int BALLPOSY = 440;
+        private const int BALLPOSX = 400;
+        private const int BALLPOSY = 250;
         private const int PADPOSX = 0;
         private const int PADPOSY = 200;
 
@@ -37,8 +37,6 @@ namespace Pong
             BallMove();
             ball.PadBounce(paddle);
             paddle.Draw();
-
-
         }
 
 
@@ -47,8 +45,9 @@ namespace Pong
         //Move ball around form
         private void BallMove()
         {
-            ball.Draw();
             ball.Move();
+            ball.Draw();
+
            
         }
 
@@ -66,9 +65,9 @@ namespace Pong
             paddle = new Paddle(graphics, Color.Black, new Point(PADPOSX, PADPOSY));
         }
 
-        public void ChangeVelocity(int index, int velocity)
-        {
-            ball.Velocity = new Point(velocity, velocity);
-        }
+        //public void ChangeVelocity(int index, int velocity)
+        //{
+        //    ball.Velocity = new Point(velocity, velocity);
+        //}
     }
 }

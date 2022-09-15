@@ -8,10 +8,10 @@ namespace Pong
 {
     public class Ball
     {
-        private const int SIZE = 20; //Size of the ball
-        private const int VELOCITY = 40; //Speed of the ball
+        private const int SIZE = 10; //Size of the ball
+        private const int VELOCITY = 15; //Speed of the ball
         private const int PADHEIGHT = 10;
-        private const int PADWIDTH =90;
+        private const int PADWIDTH = 100;
 
         private Graphics graphics;
         private Brush brush;
@@ -19,6 +19,7 @@ namespace Pong
         private Point velocity;
         private int width;
         private int height;
+        
 
         public Ball(Graphics graphics, Color color, Point position, int width, int height)
         {
@@ -28,6 +29,7 @@ namespace Pong
             this.height = height;
             velocity = new Point(VELOCITY, VELOCITY);
             brush = new SolidBrush(color);
+            
         }
 
         public void Move()
@@ -49,6 +51,7 @@ namespace Pong
             {
                 velocity.Y = velocity.Y * -1;
             }
+
         }
 
         public void PadBounce(Paddle paddle)

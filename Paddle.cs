@@ -9,8 +9,8 @@ namespace Pong
 {
     public class Paddle
     {
-        private const int PADDLEWIDTH = 20;
-        private const int PADDLEHEIGHT = 200;
+        private const int PADDLEWIDTH = 10;
+        private const int PADDLEHEIGHT = 100;
 
         private Graphics graphics;
         private Brush brush;
