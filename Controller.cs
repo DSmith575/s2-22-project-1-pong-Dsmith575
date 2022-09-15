@@ -34,9 +34,10 @@ namespace Pong
         //Runs on every timer1 tick
         public void Run()
         {
-            paddle.Draw();
             BallMove();
             ball.PadBounce(paddle);
+            paddle.Draw();
+
 
         }
 

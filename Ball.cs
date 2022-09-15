@@ -9,9 +9,9 @@ namespace Pong
     public class Ball
     {
         private const int SIZE = 20; //Size of the ball
-        private const int VELOCITY = 20; //Speed of the ball
-        private const int PADHEIGHT = 20;
-        private const int PADWIDTH =100;
+        private const int VELOCITY = 40; //Speed of the ball
+        private const int PADHEIGHT = 10;
+        private const int PADWIDTH =90;
 
         private Graphics graphics;
         private Brush brush;
@@ -53,7 +53,7 @@ namespace Pong
 
         public void PadBounce(Paddle paddle)
         {
-            if ((position.Y > paddle.PaddleP.Y) && (position.Y + SIZE <= paddle.PaddleP.Y + PADHEIGHT)
+            if ((position.Y >= paddle.PaddleP.Y) && (position.Y + SIZE <= paddle.PaddleP.Y + PADHEIGHT)
                 && (position.X >= paddle.PaddleP.X) && (position.X + SIZE <= paddle.PaddleP.X + PADWIDTH))
 
 
