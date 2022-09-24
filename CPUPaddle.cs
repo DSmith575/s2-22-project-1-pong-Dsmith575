@@ -33,24 +33,22 @@ namespace Pong
 
         public void CPUPaddleMovement(Ball ball)
         {
-            paddleP.Y = 50;
+
             if (paddleP.Y > 0)
-
             {
-                paddleP.Y = ball.BallP.Y -5;
+                paddleP.Y -= 30;
             }
 
-            if (paddleP.Y + PADHEI <= 850)
+            else if (paddleP.Y + PADHEI <850)
+
             {
-                paddleP.Y = ball.BallP.Y -5;
+                paddleP.Y += 30;
             }
 
 
 
 
-
-
-    }
+        }
 
     }
 }

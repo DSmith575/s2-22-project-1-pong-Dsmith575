@@ -12,6 +12,7 @@ namespace Pong
         private const int PADWID = 20;
         private const int PADHEI = 250;
 
+        
 
 
         
@@ -44,13 +45,17 @@ namespace Pong
         public void PlayerMoveUp()
         {
             if (paddleP.Y > 0)
-            paddleP.Y -= 50;
+            {
+                paddleP.Y -= 50;
+            }
         }
 
         public void PlayerMoveDown()
         {
             if (paddleP.Y + PADHEI <= 850)
-            paddleP.Y += 50;
+            {
+                paddleP.Y += 50;
+            }
         }   
     }
 }

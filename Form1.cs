@@ -16,6 +16,7 @@ namespace Pong
         {
             InitializeComponent();
 
+
             bufferImage = new Bitmap(Width, Height);
 
             bufferGraphics = Graphics.FromImage(bufferImage);
@@ -24,6 +25,9 @@ namespace Pong
 
             width = ClientSize.Width;
             height = ClientSize.Height;
+
+            resume.Visible = false;
+            quit.Visible = false;
 
 
 
@@ -41,12 +45,12 @@ namespace Pong
             graphics.DrawImage(bufferImage, 0, 0);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void startGame_Click(object sender, EventArgs e)
         {
             //Starts Game
             controller.Start();
             timer1.Enabled = true;
-            button1.Visible = false;
+            startGame.Visible = false;
             Focus(); //Focues on form not hidden buttons
         }
 
@@ -55,17 +59,45 @@ namespace Pong
         {
             switch (e.KeyCode)
             {
+                //MoveUp
                 case Keys.Up:
                     controller.PlayerMoveUp();
                     break;
 
+                    //MoveDown
                 case Keys.Down:
                     controller.PlayerMoveDown();
                     break;
 
+                    //Pause Game
+                case Keys.P:
+                        timer1.Enabled = false;
+                    resume.Visible = true;
+                    quit.Visible = true;
+                    break;
+
+
                 default:
                     break;
             }
+        }
+
+        
+        private void resume_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+            resume.Visible = false;
+            quit.Visible = false;
+            Focus();
+        }
+
+        private void quit_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            resume.Visible = false;
+            quit.Visible = false;
+            startGame.Visible = true;
+
         }
     }
     }

@@ -108,8 +108,6 @@ namespace Pong
             {
             velocity.Y *= BOUNCE;
             velocity.X *= BOUNCE;
-            ballP.X += velocity.X;
-            ballP.Y += velocity.Y;
 
         }
 
