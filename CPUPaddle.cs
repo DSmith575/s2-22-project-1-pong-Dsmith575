@@ -15,7 +15,6 @@ namespace Pong
         private const int PADHEI = 250;
 
 
-
         public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color)
         {
             this.graphics = graphics;
@@ -23,6 +22,7 @@ namespace Pong
             this.color = color;
 
             brush = new SolidBrush(color);
+
 
         }
 
@@ -33,22 +33,24 @@ namespace Pong
 
         public void CPUPaddleMovement(Ball ball)
         {
+            paddleP.Y = 50;
             if (paddleP.Y > 0)
+
             {
-                paddleP.Y = ball.BallP.Y - 30;
+                paddleP.Y = ball.BallP.Y -5;
             }
 
             if (paddleP.Y + PADHEI <= 850)
             {
-                paddleP.Y = ball.BallP.Y - 30;
+                paddleP.Y = ball.BallP.Y -5;
             }
 
 
 
 
 
-                
-        }
+
+    }
 
     }
 }

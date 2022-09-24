@@ -50,21 +50,22 @@ namespace Pong
             Focus(); //Focues on form not hidden buttons
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Down)
-            {
-                controller.PlayerMoveDown();
-                
-            }
-        }
 
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        private void Form1_KeyDown_1(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
+            switch (e.KeyCode)
             {
-                controller.PlayerMoveUp();
+                case Keys.Up:
+                    controller.PlayerMoveUp();
+                    break;
+
+                case Keys.Down:
+                    controller.PlayerMoveDown();
+                    break;
+
+                default:
+                    break;
             }
         }
     }
-}
+    }
