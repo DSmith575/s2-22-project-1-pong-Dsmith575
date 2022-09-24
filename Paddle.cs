@@ -13,11 +13,12 @@ namespace Pong
         private const int PADHEI = 250;
 
 
+
         
         protected Graphics graphics;
         protected Brush brush;
         protected Color color;
-
+        
         protected Point paddleP;
 
         public Paddle(Graphics graphics, Point paddleP, Color color)
@@ -38,6 +39,18 @@ namespace Pong
         public Point PaddleP
         {
             get { return paddleP; }
+        }
+
+        public void PlayerMoveUp()
+        {
+            if (paddleP.Y > 0)
+            paddleP.Y -= 10;
+        }
+
+        public void PlayerMoveDown()
+        {
+            if (paddleP.Y < 950)
+            paddleP.Y += 10;
         }
 
     }

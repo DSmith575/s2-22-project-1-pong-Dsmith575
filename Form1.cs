@@ -7,6 +7,8 @@ namespace Pong
         private Controller controller;
         private Image bufferImage;
 
+        private Paddle paddle;
+
         private int height;
         private int width;
 
@@ -50,12 +52,19 @@ namespace Pong
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Down)
+            {
+                controller.PlayerMoveDown();
+                
+            }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Up)
+            {
+                controller.PlayerMoveUp();
+            }
         }
     }
 }

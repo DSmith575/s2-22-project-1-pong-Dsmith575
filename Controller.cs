@@ -29,6 +29,9 @@ namespace Pong
         private Paddle paddle;
         private CPUPaddle paddleCPU;
 
+        private bool playerUp;
+        private bool playerDown;
+
 
 
         public Controller(Graphics graphics, int width, int height)
@@ -69,8 +72,15 @@ namespace Pong
 
         //MOVEMENT
 
+        public void PlayerMoveUp()
+        {
+            paddle.PlayerMoveUp();
+        }
 
-
+        public void PlayerMoveDown()
+        {
+            paddle.PlayerMoveDown();
+        }
 
     }
 }
