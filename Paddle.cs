@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,35 +8,37 @@ namespace Pong
 {
     public class Paddle
     {
-        private const int PADDLEWIDTH = 10;
-        private const int PADDLEHEIGHT = 100;
 
-        private Graphics graphics;
-        private Brush brush;
-        private Point paddleP;
+        private const int PADWID = 20;
+        private const int PADHEI = 250;
 
 
+        
+        protected Graphics graphics;
+        protected Brush brush;
+        protected Color color;
 
-        public Paddle(Graphics graphics, Color color, Point paddleP)
+        protected Point paddleP;
+
+        public Paddle(Graphics graphics, Point paddleP, Color color)
         {
+            
             this.graphics = graphics;
             this.paddleP = paddleP;
+            this.color = color;
+
             brush = new SolidBrush(color);
-
         }
 
-        public void Draw() //Method to draw paddle
+        public void PaddleDraw()
         {
-            graphics.FillRectangle(brush, paddleP.X, paddleP.Y, PADDLEWIDTH, PADDLEHEIGHT);
+            graphics.FillRectangle(brush, paddleP.X, paddleP.Y, PADWID, PADHEI);
         }
-
 
         public Point PaddleP
         {
-            get
-            {
-                return paddleP;
-            }
+            get { return paddleP; }
         }
+
     }
 }

@@ -1,26 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Pong
 {
+
     public class Controller
     {
+        private const int BALLPOSX = 690;
+        private const int BALLPOSY = 475;
 
-        //Sets the initial position for each ball
-        private const int BALLPOSX = 400;
-        private const int BALLPOSY = 250;
-        private const int PADPOSX = 0;
-        private const int PADPOSY = 200;
+        private const int PLAYPADX = 0;
+        private const int PLAYPADY = 300;
+        private const int CPUPADX = 1330;
+        private const int CPUPADY = 200;
+
 
         private Graphics graphics;
-        private Ball ball;
-        private Paddle paddle;
 
         private int width;
         private int height;
+        private Random rand;
+
+        private Ball ball;
+        private Paddle paddle;
+        private CPUPaddle paddleCPU;
+
 
 
         public Controller(Graphics graphics, int width, int height)
@@ -28,46 +36,41 @@ namespace Pong
             this.graphics = graphics;
             this.width = width;
             this.height = height;
-
         }
 
-        //Runs on every timer1 tick
+
         public void Run()
         {
             BallMove();
-            ball.PadBounce(paddle);
-            paddle.Draw();
+            ball.BallBounce();
+            paddle.PaddleDraw();
+            paddleCPU.PaddleDrawCPU();
         }
 
-
-
-
-        //Move ball around form
-        private void BallMove()
+        public void BallMove()
         {
-            ball.Move();
-            ball.Draw();
+            ball.PaddleBounce(paddle, paddleCPU);
+            ball.MoveBall();
+            ball.DrawBall();
 
-           
         }
-
-        //private void PlayerMove()
-        //{
-        //    paddle.Move();
-        //}
-
-
-
 
         public void Start()
         {
-            ball = new Ball(graphics, Color.Black, new Point(BALLPOSX, BALLPOSY), width, height);
-            paddle = new Paddle(graphics, Color.Black, new Point(PADPOSX, PADPOSY));
+
+            //Draws ball, player paddle, cpu paddle, randoms their colors.
+            rand = new Random();
+            ball = new Ball(graphics, new Point(BALLPOSX, BALLPOSY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)), width, height);
+            paddle = new Paddle(graphics, new Point(PLAYPADX, PLAYPADY),Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
+            paddleCPU = new CPUPaddle(graphics, new Point(CPUPADX, CPUPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
+
         }
 
-        //public void ChangeVelocity(int index, int velocity)
-        //{
-        //    ball.Velocity = new Point(velocity, velocity);
-        //}
+
+        //MOVEMENT
+
+
+
+
     }
 }

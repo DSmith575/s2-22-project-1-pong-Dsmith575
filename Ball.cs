@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,102 +10,113 @@ namespace Pong
 {
     public class Ball
     {
-        private const int SIZE = 10; //Size of the ball
-        private const int VELOCITY = 15; //Speed of the ball
-        private const int PADHEIGHT = 10;
-        private const int PADWIDTH = 100;
+
+        private const int BALLSIZE = 30; 
+        private const int VELOCITY = 20; 
+        private const int BOUNCE = -1;
+
+        private Random rand;
+
+
+        //Used to reset balls pos
+        private const int BALLPOSX = 690;
+        private const int BALLPOSY = 475;
+
+
+        private const int PADHEI = 250;
+        private const int PADWID = 20;
+
 
         private Graphics graphics;
-        private Brush brush;
-        private Point position;
+        private Point ballP;
         private Point velocity;
-        private int width;
-        private int height;
-        
+        private Color color;
+        private Brush brush;
 
-        public Ball(Graphics graphics, Color color, Point position, int width, int height)
+        private int height;
+        private int width;
+
+
+        public Ball(Graphics graphics, Point ballP, Color color, int width, int height)
         {
             this.graphics = graphics;
-            this.position = position;
+            this.ballP = ballP;
+            this.color = color;
+            velocity = new Point(VELOCITY, VELOCITY);
             this.width = width;
             this.height = height;
-            velocity = new Point(VELOCITY, VELOCITY);
+
+
             brush = new SolidBrush(color);
-            
         }
 
-        public void Move()
+        public void DrawBall()
         {
-            position.X = position.X + velocity.X;
-            position.Y = position.Y + velocity.Y;
-            Bounce();
+            graphics.FillEllipse(brush, ballP.X, ballP.Y, BALLSIZE, BALLSIZE);
         }
 
-
-        public void Bounce()
+        public void MoveBall()
         {
-            if ((position.X <= 0) || (position.X + SIZE >= width))
+            ballP.X += velocity.X;
+            ballP.Y += velocity.Y;
+        }
+
+        public void BallBounce()
+        {
+            if (ballP.X <= 0)
             {
-                velocity.X = velocity.X * -1;
+                BallReset();
+                //CPU Score
             }
 
-            if ((position.Y <= 0) || (position.Y + SIZE >= height))
+            if (ballP.X > width)
             {
-                velocity.Y = velocity.Y * -1;
+                BallReset();
+                //Player Score
             }
 
-        }
-
-        public void PadBounce(Paddle paddle)
-        {
-            if ((position.Y >= paddle.PaddleP.Y) && (position.Y + SIZE <= paddle.PaddleP.Y + PADHEIGHT)
-                && (position.X >= paddle.PaddleP.X) && (position.X + SIZE <= paddle.PaddleP.X + PADWIDTH))
-
-
-                velocity.Y = velocity.Y * -1;
-                position.X = position.X + velocity.X;
-                position.Y = position.Y + velocity.Y;
-            
-        }
-        
-
-
-        public void Draw()//Draws the ball
-        {
-           graphics.FillEllipse(brush, position.X, position.Y, SIZE, SIZE);
-        }
-
-
-
-
-        public Point Velocity
-        {
-            get
+            //Check ball pos to top and bottom of form and bounce
+            if ((ballP.Y + BALLSIZE) >= height || ballP.Y <= 0)
             {
-                return velocity;
+                velocity.Y *= BOUNCE;
             }
+        }
 
-            set
+        public void PaddleBounce(Paddle paddle, CPUPaddle paddleCPU)
+        {
+            //Checks pos of ball and paddles and if true bounces the ball back
+            if ((ballP.X <= paddleCPU.PaddleP.X + PADWID) && (ballP.X + BALLSIZE >= paddleCPU.PaddleP.X) &&
+                    (ballP.Y <= paddleCPU.PaddleP.Y + PADHEI) && (ballP.Y + BALLSIZE >= paddleCPU.PaddleP.Y) ||
+
+                    ((ballP.X <= paddle.PaddleP.X + PADWID) && (ballP.X + BALLSIZE >= paddle.PaddleP.X) &&
+                    (ballP.Y <= paddle.PaddleP.Y + PADHEI) && (ballP.Y + BALLSIZE >= paddle.PaddleP.Y)))
             {
-                if (velocity.X > 0)
-                {
-                    velocity.X = value.X;
-                }
-                else
-                {
-                    velocity.X = -value.X;
-                }
-
-                if (velocity.Y > 0)
-                {
-                    velocity.X = value.Y;
-                }
-                else
-                {
-                    velocity.Y = -value.Y;
-                }
+                VelocityShift();
 
             }
         }
+
+
+
+        //Changes Balls Velocity when hitting paddle
+            public void VelocityShift()
+            {
+            velocity.Y *= BOUNCE;
+            velocity.X *= BOUNCE;
+            ballP.X += velocity.X;
+            ballP.Y += velocity.Y;
+
+        }
+
+        //Resets balls X & Y POS
+        public void BallReset()
+        {
+            rand = new Random();
+
+            ballP.X = BALLPOSX;
+            ballP.Y = BALLPOSY;
+            velocity.X *= BOUNCE;
+        }
+
     }
-}
+    }
