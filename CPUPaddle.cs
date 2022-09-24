@@ -31,5 +31,24 @@ namespace Pong
             graphics.FillRectangle(brush, paddleP.X, paddleP.Y, PADWID, PADHEI);
         }
 
+        public void CPUPaddleMovement(Ball ball)
+        {
+            if (paddleP.Y > 0)
+            {
+                paddleP.Y = ball.BallP.Y - 30;
+            }
+
+            if (paddleP.Y + PADHEI <= 850)
+            {
+                paddleP.Y = ball.BallP.Y - 30;
+            }
+
+
+
+
+
+                
+        }
+
     }
 }

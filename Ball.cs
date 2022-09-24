@@ -50,6 +50,11 @@ namespace Pong
             brush = new SolidBrush(color);
         }
 
+        public Point BallP
+        {
+            get { return ballP; }
+        }
+
         public void DrawBall()
         {
             graphics.FillEllipse(brush, ballP.X, ballP.Y, BALLSIZE, BALLSIZE);

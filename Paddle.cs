@@ -44,14 +44,13 @@ namespace Pong
         public void PlayerMoveUp()
         {
             if (paddleP.Y > 0)
-            paddleP.Y -= 10;
+            paddleP.Y -= 50;
         }
 
         public void PlayerMoveDown()
         {
-            if (paddleP.Y < 950)
-            paddleP.Y += 10;
-        }
-
+            if (paddleP.Y + PADHEI <= 850)
+            paddleP.Y += 50;
+        }   
     }
 }

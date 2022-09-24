@@ -48,6 +48,7 @@ namespace Pong
             ball.BallBounce();
             paddle.PaddleDraw();
             paddleCPU.PaddleDrawCPU();
+            paddleCPU.CPUPaddleMovement(ball);
         }
 
         public void BallMove()
@@ -55,6 +56,7 @@ namespace Pong
             ball.PaddleBounce(paddle, paddleCPU);
             ball.MoveBall();
             ball.DrawBall();
+            paddleCPU.PaddleDrawCPU();
 
         }
 
