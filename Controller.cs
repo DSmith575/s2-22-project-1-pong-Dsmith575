@@ -22,11 +22,6 @@
         private Paddle paddle;
         private CPUPaddle paddleCPU;
 
-        private bool playerUp;
-        private bool playerDown;
-
-
-
         public Controller(Graphics graphics, int width, int height)
         {
             this.graphics = graphics;
@@ -63,7 +58,6 @@
             paddleCPU = new CPUPaddle(graphics, new Point(CPUPADX, CPUPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
 
         }
-
 
         //MOVEMENT
 

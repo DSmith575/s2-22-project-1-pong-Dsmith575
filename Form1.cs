@@ -52,6 +52,7 @@ namespace Pong
         {
             //Starts Game
             controller.Start();
+            EnableDoubleBuffering();
             timer1.Enabled = true;
             startGame.Visible = false;
             Focus(); //Focues on form not hidden buttons
@@ -101,6 +102,19 @@ namespace Pong
             quit.Visible = false;
             startGame.Visible = true;
 
+        }
+
+
+
+
+        public void EnableDoubleBuffering()
+        {
+            // Set the value of the double-buffering style bits to true.
+            this.SetStyle(ControlStyles.DoubleBuffer |
+               ControlStyles.UserPaint |
+               ControlStyles.AllPaintingInWmPaint,
+               true);
+            this.UpdateStyles();
         }
     }
 }

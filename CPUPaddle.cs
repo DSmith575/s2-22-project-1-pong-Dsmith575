@@ -1,14 +1,17 @@
 ﻿namespace Pong
 {
-    public class CPUPaddle : Paddle
+    public  class CPUPaddle : Paddle
 
     {
 
         private const int PADWID = 20;
         private const int PADHEI = 250;
-        private const int MOVEMENTCPU = 50;
+        private const int MOVEMENTCPU = 20;
+        private const int MOVEDOWN = 850; //== form width
 
         private bool movementSwitch = false;
+
+        private Random rand = new Random();
 
         public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color)
         {
@@ -32,13 +35,15 @@
 
             //paddleP.Y = ball.BallP.Y;
 
+
+            //Bool switch to determine which way the CPU will move.
             switch (movementSwitch)
             {
                 case false:
-                    if (paddleP.Y + PADHEI <= 850)
+                    if (paddleP.Y + PADHEI <= MOVEDOWN)
                     {
                         paddleP.Y += MOVEMENTCPU;
-                        if (paddleP.Y + PADHEI == 850)
+                        if (paddleP.Y + PADHEI == MOVEDOWN)
                         {
                             movementSwitch = true;
                         }
@@ -59,10 +64,11 @@
                     break;
 
                 default:
-                    break;
+
+
             }
 
-             
+
             //Move DOWN
             //if (paddleP.Y + PADHEI <= 850)
             //{

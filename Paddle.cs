@@ -5,10 +5,8 @@
 
         private const int PADWID = 20;
         private const int PADHEI = 250;
-
-
-
-
+        private const int HEICONTROL = 850; //max value for paddle + height position
+        private const int PADSPEED = 50; //How far the paddle.Y moves when key press
 
         protected Graphics graphics;
         protected Brush brush;
@@ -40,15 +38,15 @@
         {
             if (paddleP.Y > 0)
             {
-                paddleP.Y -= 20;
+                paddleP.Y -= PADSPEED;
             }
         }
 
         public void PlayerMoveDown()
         {
-            if (paddleP.Y + PADHEI <= 850)
+            if (paddleP.Y + PADHEI <= HEICONTROL)
             {
-                paddleP.Y += 20;
+                paddleP.Y += PADSPEED;
             }
         }
     }
