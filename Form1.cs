@@ -18,13 +18,15 @@ namespace Pong
 
 
             bufferImage = new Bitmap(Width, Height);
-
             bufferGraphics = Graphics.FromImage(bufferImage);
-
             graphics = CreateGraphics();
+
+
 
             width = ClientSize.Width;
             height = ClientSize.Height;
+
+
 
             resume.Visible = false;
             quit.Visible = false;
@@ -39,10 +41,11 @@ namespace Pong
         private void timer1_Tick(object sender, EventArgs e)
         {
             bufferGraphics.FillRectangle(Brushes.White, 0, 0, Width, Height);
-            
+
             controller.Run();
 
             graphics.DrawImage(bufferImage, 0, 0);
+
         }
 
         private void startGame_Click(object sender, EventArgs e)
@@ -64,14 +67,14 @@ namespace Pong
                     controller.PlayerMoveUp();
                     break;
 
-                    //MoveDown
+                //MoveDown
                 case Keys.Down:
                     controller.PlayerMoveDown();
                     break;
 
-                    //Pause Game
+                //Pause Game
                 case Keys.P:
-                        timer1.Enabled = false;
+                    timer1.Enabled = false;
                     resume.Visible = true;
                     quit.Visible = true;
                     break;
@@ -82,7 +85,7 @@ namespace Pong
             }
         }
 
-        
+
         private void resume_Click(object sender, EventArgs e)
         {
             timer1.Enabled = true;
@@ -100,4 +103,4 @@ namespace Pong
 
         }
     }
-    }
+}

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pong
+﻿namespace Pong
 {
     public class CPUPaddle : Paddle
 
@@ -13,7 +6,9 @@ namespace Pong
 
         private const int PADWID = 20;
         private const int PADHEI = 250;
+        private const int MOVEMENTCPU = 50;
 
+        private bool movementSwitch = false;
 
         public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color)
         {
@@ -33,17 +28,64 @@ namespace Pong
 
         public void CPUPaddleMovement(Ball ball)
         {
+            //AI follows ball.Y pos
 
-            if (paddleP.Y > 0)
+            //paddleP.Y = ball.BallP.Y;
+
+            switch (movementSwitch)
             {
-                paddleP.Y -= 30;
+                case false:
+                    if (paddleP.Y + PADHEI <= 850)
+                    {
+                        paddleP.Y += MOVEMENTCPU;
+                        if (paddleP.Y + PADHEI == 850)
+                        {
+                            movementSwitch = true;
+                        }
+                    }
+                    break;
+
+                case true:
+                    if (paddleP.Y != 0)
+                    {
+                        paddleP.Y -= MOVEMENTCPU;
+                        {
+                            if (paddleP.Y == 0)
+                            {
+                                movementSwitch = false;
+                            }
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
             }
 
-            else if (paddleP.Y + PADHEI <850)
+             
+            //Move DOWN
+            //if (paddleP.Y + PADHEI <= 850)
+            //{
+            //    paddleP.Y += MOVEMENTCPU;
+            //    if (paddleP.Y + PADHEI == 850)
+            //    {
+            //        movementSwitch = true;
+            //    }
+            //}
 
-            {
-                paddleP.Y += 30;
-            }
+            ////Move UP
+            //if (paddleP.Y != 0)
+            //{
+            //    paddleP.Y -= MOVEMENTCPU;
+            //    {
+            //        if (paddleP.Y == 0)
+            //        {
+            //            movementSwitch = false;
+            //        }
+            //    }
+            //}
+
+
 
 
 

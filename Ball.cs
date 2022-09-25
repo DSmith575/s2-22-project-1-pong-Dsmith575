@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pong
+﻿namespace Pong
 {
     public class Ball
     {
 
-        private const int BALLSIZE = 30; 
-        private const int VELOCITY = 20; 
+        private const int BALLSIZE = 30;
+        private const int VELOCITY = 20;
         private const int BOUNCE = -1;
 
         private Random rand;
@@ -104,8 +96,8 @@ namespace Pong
 
 
         //Changes Balls Velocity when hitting paddle
-            public void VelocityShift()
-            {
+        public void VelocityShift()
+        {
             velocity.Y *= BOUNCE;
             velocity.X *= BOUNCE;
 
@@ -122,4 +114,4 @@ namespace Pong
         }
 
     }
-    }
+}

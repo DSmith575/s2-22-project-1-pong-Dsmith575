@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pong
+﻿namespace Pong
 {
     public class Scores
     {
@@ -15,7 +8,7 @@ namespace Pong
 
         public Scores()
         {
-            
+
 
         }
     }

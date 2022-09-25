@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pong
+﻿namespace Pong
 {
 
     public class Controller
@@ -66,7 +59,7 @@ namespace Pong
             //Draws ball, player paddle, cpu paddle, randoms their colors.
             rand = new Random();
             ball = new Ball(graphics, new Point(BALLPOSX, BALLPOSY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)), width, height);
-            paddle = new Paddle(graphics, new Point(PLAYPADX, PLAYPADY),Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
+            paddle = new Paddle(graphics, new Point(PLAYPADX, PLAYPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
             paddleCPU = new CPUPaddle(graphics, new Point(CPUPADX, CPUPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
 
         }
