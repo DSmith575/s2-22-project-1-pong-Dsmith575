@@ -42,9 +42,10 @@
             // 
             // startGame
             // 
-            this.startGame.Location = new System.Drawing.Point(447, 141);
+            this.startGame.Location = new System.Drawing.Point(356, 52);
+            this.startGame.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.startGame.Name = "startGame";
-            this.startGame.Size = new System.Drawing.Size(498, 155);
+            this.startGame.Size = new System.Drawing.Size(268, 73);
             this.startGame.TabIndex = 0;
             this.startGame.Text = "Start Game";
             this.startGame.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@
             // 
             // resume
             // 
-            this.resume.Location = new System.Drawing.Point(447, 467);
+            this.resume.Location = new System.Drawing.Point(390, 208);
+            this.resume.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.resume.Name = "resume";
-            this.resume.Size = new System.Drawing.Size(498, 61);
+            this.resume.Size = new System.Drawing.Size(268, 29);
             this.resume.TabIndex = 1;
             this.resume.Text = "Resume";
             this.resume.UseVisualStyleBackColor = true;
@@ -62,9 +64,10 @@
             // 
             // quit
             // 
-            this.quit.Location = new System.Drawing.Point(447, 565);
+            this.quit.Location = new System.Drawing.Point(304, 266);
+            this.quit.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.quit.Name = "quit";
-            this.quit.Size = new System.Drawing.Size(498, 61);
+            this.quit.Size = new System.Drawing.Size(268, 29);
             this.quit.TabIndex = 2;
             this.quit.Text = "Quit";
             this.quit.UseVisualStyleBackColor = true;
@@ -72,12 +75,13 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1354, 879);
+            this.ClientSize = new System.Drawing.Size(984, 411);
             this.Controls.Add(this.quit);
             this.Controls.Add(this.resume);
             this.Controls.Add(this.startGame);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);

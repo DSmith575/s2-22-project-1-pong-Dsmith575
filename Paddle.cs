@@ -3,10 +3,10 @@
     public class Paddle
     {
 
-        private const int PADWID = 20;
-        private const int PADHEI = 250;
-        private const int HEICONTROL = 850; //max value for paddle + height position
-        private const int PADSPEED = 50; //How far the paddle.Y moves when key press
+        private const int PADWID = 10;
+        private const int PADHEI = 100;
+        private const int HEICONTROL = 400; //max value for paddle + height position
+        private const int PADSPEED = 20; //How far the paddle.Y moves when key press
 
         protected Graphics graphics;
         protected Brush brush;

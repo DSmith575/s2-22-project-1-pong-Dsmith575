@@ -3,20 +3,20 @@
     public class Ball
     {
 
-        private const int BALLSIZE = 30;
-        private const int VELOCITY = 20;
+        private const int BALLSIZE = 20;
+        private const int VELOCITY = 10;
         private const int BOUNCE = -1;
 
         private Random rand;
 
 
         //Used to reset balls pos
-        private const int BALLPOSX = 690;
-        private const int BALLPOSY = 475;
+        private const int BALLPOSX = 500;
+        private const int BALLPOSY = 200;
 
 
-        private const int PADHEI = 250;
-        private const int PADWID = 20;
+        private const int PADHEI = 100;
+        private const int PADWID = 10;
 
 
         private Graphics graphics;

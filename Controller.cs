@@ -3,13 +3,13 @@
 
     public class Controller
     {
-        private const int BALLPOSX = 690;
-        private const int BALLPOSY = 475;
+        private const int BALLPOSX = 500;
+        private const int BALLPOSY = 200;
 
         private const int PLAYPADX = 0;
         private const int PLAYPADY = 300;
-        private const int CPUPADX = 1330;
-        private const int CPUPADY = 200;
+        private const int CPUPADX = 973;
+        private const int CPUPADY = 0;
 
 
         private Graphics graphics;

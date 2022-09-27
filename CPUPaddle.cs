@@ -4,10 +4,10 @@
 
     {
 
-        private const int PADWID = 20;
-        private const int PADHEI = 250;
-        private const int MOVEMENTCPU = 20;
-        private const int MOVEDOWN = 850; //== form width
+        private const int PADWID = 10;
+        private const int PADHEI = 100;
+        private const int MOVEMENTCPU = 10; //CPU PADDLE SPEED
+        private const int MOVEDOWN = 440; //== form width
 
         private bool movementSwitch = false;
 
