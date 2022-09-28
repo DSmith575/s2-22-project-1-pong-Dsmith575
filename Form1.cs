@@ -7,7 +7,7 @@ namespace Pong
         private Controller controller;
         private Image bufferImage;
 
-        private Paddle paddle;
+
 
         private int height;
         private int width;
@@ -34,9 +34,9 @@ namespace Pong
 
 
             controller = new Controller(bufferGraphics, width, height);
-
-
         }
+
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -52,10 +52,13 @@ namespace Pong
         {
             //Starts Game
             controller.Start();
-            EnableDoubleBuffering();
+            //EnableDoubleBuffering();
             timer1.Enabled = true;
             startGame.Visible = false;
-            Focus(); //Focues on form not hidden buttons
+            quit.Visible = false;
+            menuquit.Visible = false;
+            highscore.Visible = false;
+            Focus(); //Focus on form not hidden buttons
         }
 
 
@@ -101,20 +104,28 @@ namespace Pong
             resume.Visible = false;
             quit.Visible = false;
             startGame.Visible = true;
+            menuquit.Visible = true;
+            highscore.Visible = true;
+            this.Refresh();
 
         }
 
-
-
-
-        public void EnableDoubleBuffering()
+        private void button2_Click(object sender, EventArgs e)
         {
-            // Set the value of the double-buffering style bits to true.
-            this.SetStyle(ControlStyles.DoubleBuffer |
-               ControlStyles.UserPaint |
-               ControlStyles.AllPaintingInWmPaint,
-               true);
-            this.UpdateStyles();
+           Environment.Exit(0);
         }
+
+
+
+
+        //public void EnableDoubleBuffering()
+        //{
+        //    // Set the value of the double-buffering style bits to true.
+        //    this.SetStyle(ControlStyles.DoubleBuffer |
+        //       ControlStyles.UserPaint |
+        //       ControlStyles.AllPaintingInWmPaint,
+        //       true);
+        //    this.UpdateStyles();
+        //}
     }
 }

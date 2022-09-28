@@ -7,11 +7,10 @@
         private const int PADWID = 10;
         private const int PADHEI = 100;
         private const int MOVEMENTCPU = 10; //CPU PADDLE SPEED
-        private const int MOVEDOWN = 440; //== form width
+        private const int MOVEDOWN = 420; //== form width
 
         private bool movementSwitch = false;
 
-        private Random rand = new Random();
 
         public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color)
         {
@@ -32,13 +31,13 @@
         public void CPUPaddleMovement(Ball ball)
         {
             //AI follows ball.Y pos
-
             //paddleP.Y = ball.BallP.Y;
 
 
             //Bool switch to determine which way the CPU will move.
             switch (movementSwitch)
             {
+             
                 case false:
                     if (paddleP.Y + PADHEI <= MOVEDOWN)
                     {

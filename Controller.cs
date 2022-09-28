@@ -3,11 +3,11 @@
 
     public class Controller
     {
-        private const int BALLPOSX = 500;
-        private const int BALLPOSY = 200;
+        private const int BALLPOSX = 500; //Ball starting pos X
+        private const int BALLPOSY = 200; //Ball starting pos Y
 
-        private const int PLAYPADX = 0;
-        private const int PLAYPADY = 300;
+        private const int PLAYPADX = 0; //Player starting pos X pos
+        private const int PLAYPADY = 100; //Player starting pos Y position
         private const int CPUPADX = 973;
         private const int CPUPADY = 0;
 

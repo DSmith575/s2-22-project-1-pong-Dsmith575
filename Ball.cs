@@ -7,7 +7,7 @@
         private const int VELOCITY = 10;
         private const int BOUNCE = -1;
 
-        private Random rand;
+
 
 
         //Used to reset balls pos
@@ -106,8 +106,6 @@
         //Resets balls X & Y POS
         public void BallReset()
         {
-            rand = new Random();
-
             ballP.X = BALLPOSX;
             ballP.Y = BALLPOSY;
             velocity.X *= BOUNCE;

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Pong.Ball">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIQAAQAgAAhAYgQAAiAAgAgAAAAAiAgAQAAAACIAA=</HashCode>
+      <FileName>Ball.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.Controller">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAQACAAAAQAQGAAAIAAAAABQQgAgAQAAgAACAI=</HashCode>
+      <FileName>Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.CPUPaddle">
+    <Position X="3" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAQAAAEAAAAAAAAAACBAgAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>CPUPaddle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.Form1" Collapsed="true">
+    <Position X="9.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAwAAAAAACAAAAUAQiCAACECAAAAIAgAAAghAAAAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.Paddle">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAQAACAgAAAAAAAAAIAggAAAABQAiAAAAAAAAAABA=</HashCode>
+      <FileName>Paddle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.Scores">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scores.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
