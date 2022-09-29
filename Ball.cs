@@ -15,15 +15,12 @@
         private const int BALLPOSY = 200;
 
 
-        private const int PADHEI = 100;
-        private const int PADWID = 10;
 
 
         private Graphics graphics;
         private Point ballP;
         private Point velocity;
         private Color color;
-        private Brush brush;
 
         private int height;
         private int width;
@@ -39,16 +36,20 @@
             this.height = height;
 
 
-            brush = new SolidBrush(color);
         }
 
         public Point BallP
         {
-            get { return ballP; }
+            get 
+            { return ballP; }
         }
+
+        public int PADWID { get; private set; }
+        public int PADHEI { get; private set; }
 
         public void DrawBall()
         {
+            Brush brush = new SolidBrush(color);
             graphics.FillEllipse(brush, ballP.X, ballP.Y, BALLSIZE, BALLSIZE);
         }
 

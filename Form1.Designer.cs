@@ -44,10 +44,10 @@
             // 
             // startGame
             // 
-            this.startGame.Location = new System.Drawing.Point(362, 83);
-            this.startGame.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.startGame.Location = new System.Drawing.Point(672, 177);
+            this.startGame.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.startGame.Name = "startGame";
-            this.startGame.Size = new System.Drawing.Size(246, 49);
+            this.startGame.Size = new System.Drawing.Size(457, 105);
             this.startGame.TabIndex = 0;
             this.startGame.Text = "Start Game";
             this.startGame.UseVisualStyleBackColor = true;
@@ -55,10 +55,10 @@
             // 
             // resume
             // 
-            this.resume.Location = new System.Drawing.Point(144, 177);
-            this.resume.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.resume.Location = new System.Drawing.Point(267, 378);
+            this.resume.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.resume.Name = "resume";
-            this.resume.Size = new System.Drawing.Size(268, 29);
+            this.resume.Size = new System.Drawing.Size(498, 62);
             this.resume.TabIndex = 1;
             this.resume.Text = "Resume";
             this.resume.UseVisualStyleBackColor = true;
@@ -66,10 +66,10 @@
             // 
             // quit
             // 
-            this.quit.Location = new System.Drawing.Point(567, 177);
-            this.quit.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.quit.Location = new System.Drawing.Point(1053, 378);
+            this.quit.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.quit.Name = "quit";
-            this.quit.Size = new System.Drawing.Size(268, 29);
+            this.quit.Size = new System.Drawing.Size(498, 62);
             this.quit.TabIndex = 2;
             this.quit.Text = "Quit";
             this.quit.UseVisualStyleBackColor = true;
@@ -77,18 +77,20 @@
             // 
             // highscore
             // 
-            this.highscore.Location = new System.Drawing.Point(452, 180);
+            this.highscore.Location = new System.Drawing.Point(839, 384);
+            this.highscore.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.highscore.Name = "highscore";
-            this.highscore.Size = new System.Drawing.Size(75, 23);
+            this.highscore.Size = new System.Drawing.Size(139, 49);
             this.highscore.TabIndex = 3;
             this.highscore.Text = "Highscores";
             this.highscore.UseVisualStyleBackColor = true;
             // 
             // menuquit
             // 
-            this.menuquit.Location = new System.Drawing.Point(362, 246);
+            this.menuquit.Location = new System.Drawing.Point(672, 525);
+            this.menuquit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.menuquit.Name = "menuquit";
-            this.menuquit.Size = new System.Drawing.Size(246, 49);
+            this.menuquit.Size = new System.Drawing.Size(457, 105);
             this.menuquit.TabIndex = 4;
             this.menuquit.Text = "Quit Game";
             this.menuquit.UseVisualStyleBackColor = true;
@@ -96,16 +98,16 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(984, 411);
+            this.ClientSize = new System.Drawing.Size(1827, 877);
             this.Controls.Add(this.menuquit);
             this.Controls.Add(this.highscore);
             this.Controls.Add(this.quit);
             this.Controls.Add(this.resume);
             this.Controls.Add(this.startGame);
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);

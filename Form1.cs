@@ -1,3 +1,12 @@
+/* 
+ * Known bugs: 
+ * Ball sometimes get stuck when hitting the paddles from the bottom, fixes itself when paddle no longer it's position.
+ * When the ball is black it has a flicker, assuming it it due to the Rectangle brush being black
+ *
+ */
+
+
+
 namespace Pong
 {
     public partial class Form1 : Form
@@ -6,11 +15,15 @@ namespace Pong
         private Graphics graphics;
         private Controller controller;
         private Image bufferImage;
+        private Ball ball;
+        private Paddle paddle;
+        private CPUPaddle paddleCPU;
 
 
 
         private int height;
         private int width;
+
 
         public Form1()
         {
@@ -20,20 +33,15 @@ namespace Pong
             bufferImage = new Bitmap(Width, Height);
             bufferGraphics = Graphics.FromImage(bufferImage);
             graphics = CreateGraphics();
-
-
-
             width = ClientSize.Width;
             height = ClientSize.Height;
-
-
 
             resume.Visible = false;
             quit.Visible = false;
 
 
 
-            controller = new Controller(bufferGraphics, width, height);
+            controller = new Controller(bufferGraphics, width, height, ball, paddle, paddleCPU);
         }
 
 
@@ -118,14 +126,5 @@ namespace Pong
 
 
 
-        //public void EnableDoubleBuffering()
-        //{
-        //    // Set the value of the double-buffering style bits to true.
-        //    this.SetStyle(ControlStyles.DoubleBuffer |
-        //       ControlStyles.UserPaint |
-        //       ControlStyles.AllPaintingInWmPaint,
-        //       true);
-        //    this.UpdateStyles();
-        //}
     }
 }

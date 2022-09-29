@@ -16,17 +16,31 @@
 
         private int width;
         private int height;
-        private Random rand;
+        private Random rand = new Random();
 
         private Ball ball;
         private Paddle paddle;
         private CPUPaddle paddleCPU;
 
-        public Controller(Graphics graphics, int width, int height)
+        public Controller(Graphics graphics, int width, int height, Ball ball, Paddle paddle, CPUPaddle paddleCPU)
         {
             this.graphics = graphics;
             this.width = width;
             this.height = height;
+
+            this.ball = ball;
+            this.paddle = paddle;
+            this.paddleCPU = paddleCPU;
+        }
+
+        public void Start()
+        {
+
+            //Draws ball, player paddle, cpu paddle, randoms their colors.
+            ball = new Ball(graphics, new Point(BALLPOSX, BALLPOSY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)), width, height);
+            paddle = new Paddle(graphics, new Point(PLAYPADX, PLAYPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
+            paddleCPU = new CPUPaddle(graphics, new Point(CPUPADX, CPUPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
+
         }
 
 
@@ -34,8 +48,8 @@
         {
             BallMove();
             ball.BallBounce();
-            paddle.PaddleDraw();
-            paddleCPU.PaddleDrawCPU();
+            paddle.Draw();
+            paddleCPU.Draw();
             paddleCPU.CPUPaddleMovement(ball);
         }
 
@@ -44,20 +58,10 @@
             ball.PaddleBounce(paddle, paddleCPU);
             ball.MoveBall();
             ball.DrawBall();
-            paddleCPU.PaddleDrawCPU();
-
+            paddleCPU.Draw();
         }
 
-        public void Start()
-        {
 
-            //Draws ball, player paddle, cpu paddle, randoms their colors.
-            rand = new Random();
-            ball = new Ball(graphics, new Point(BALLPOSX, BALLPOSY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)), width, height);
-            paddle = new Paddle(graphics, new Point(PLAYPADX, PLAYPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
-            paddleCPU = new CPUPaddle(graphics, new Point(CPUPADX, CPUPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
-
-        }
 
         //MOVEMENT
 
