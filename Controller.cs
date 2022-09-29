@@ -5,22 +5,20 @@
     {
         private const int BALLPOSX = 500; //Ball starting pos X
         private const int BALLPOSY = 200; //Ball starting pos Y
-
-        private const int PLAYPADX = 0; //Player starting pos X pos
+        private const int PLAYPADX = 3; //Player starting pos X pos
         private const int PLAYPADY = 100; //Player starting pos Y position
-        private const int CPUPADX = 973;
+        private const int CPUPADX = 970;
         private const int CPUPADY = 0;
 
-
         private Graphics graphics;
+        private Ball ball;
+        private Paddle paddle;
+        private CPUPaddle paddleCPU;
 
         private int width;
         private int height;
         private Random rand = new Random();
 
-        private Ball ball;
-        private Paddle paddle;
-        private CPUPaddle paddleCPU;
 
         public Controller(Graphics graphics, int width, int height, Ball ball, Paddle paddle, CPUPaddle paddleCPU)
         {
@@ -40,7 +38,6 @@
             ball = new Ball(graphics, new Point(BALLPOSX, BALLPOSY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)), width, height);
             paddle = new Paddle(graphics, new Point(PLAYPADX, PLAYPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
             paddleCPU = new CPUPaddle(graphics, new Point(CPUPADX, CPUPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
-
         }
 
 

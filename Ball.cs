@@ -6,16 +6,9 @@
         private const int BALLSIZE = 20;
         private const int VELOCITY = 10;
         private const int BOUNCE = -1;
-
-
-
-
         //Used to reset balls pos
         private const int BALLPOSX = 500;
         private const int BALLPOSY = 200;
-
-
-
 
         private Graphics graphics;
         private Point ballP;
@@ -25,7 +18,6 @@
         private int height;
         private int width;
 
-
         public Ball(Graphics graphics, Point ballP, Color color, int width, int height)
         {
             this.graphics = graphics;
@@ -34,8 +26,6 @@
             velocity = new Point(VELOCITY, VELOCITY);
             this.width = width;
             this.height = height;
-
-
         }
 
         public Point BallP
@@ -111,6 +101,7 @@
             ballP.Y = BALLPOSY;
             velocity.X *= BOUNCE;
         }
+
 
     }
 }

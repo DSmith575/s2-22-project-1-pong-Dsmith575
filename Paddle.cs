@@ -1,29 +1,19 @@
 ﻿using System.Drawing;
-
 namespace Pong
 {
     public class Paddle : Shapes
     {
-
-        private const int HEICONTROL = 400; //max value for paddle + height position
-        private const int PADSPEED = 20; //How far the paddle.Y moves when key press
-
-
-
-        public Paddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADHEI, PADWID)
+        public Paddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADHEI, PADWID, MOVESPEED, HEICONTROL, HEICTRLCPU)
         {
             this.graphics = graphics;
             this.paddleP = paddleP;
-            
         }
-
-
 
         public void PlayerMoveUp()
         {
             if (paddleP.Y > 0)
             {
-                paddleP.Y -= PADSPEED;
+                paddleP.Y -= MOVESPEED;
             }
         }
 
@@ -31,7 +21,7 @@ namespace Pong
         {
             if (paddleP.Y + PADHEI <= HEICONTROL)
             {
-                paddleP.Y += PADSPEED;
+                paddleP.Y += MOVESPEED;
             }
         }
 

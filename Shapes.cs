@@ -13,8 +13,11 @@ namespace Pong
         protected Color color;
         protected const int PADWID = 10;
         protected const int PADHEI = 100;
+        protected const int MOVESPEED = 10;
+        protected const int HEICONTROL = 400;
+        protected const int HEICTRLCPU = 420;
 
-        public Shapes(Graphics graphics, Point paddleP, Color color, int PADWID, int PADHEI)
+        public Shapes(Graphics graphics, Point paddleP, Color color, int PADWID, int PADHEI, int MOVESPEED, int HEICONTROL, int HEICTRLCPU)
         {
             this.graphics = graphics;
             this.paddleP = paddleP;

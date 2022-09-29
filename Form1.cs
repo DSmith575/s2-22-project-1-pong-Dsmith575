@@ -1,11 +1,9 @@
 /* 
  * Known bugs: 
  * Ball sometimes get stuck when hitting the paddles from the bottom, fixes itself when paddle no longer it's position.
- * When the ball is black it has a flicker, assuming it it due to the Rectangle brush being black
+ * When the ball is black it has a flicker, assuming it is due to the Rectangle brush being black
  *
  */
-
-
 
 namespace Pong
 {
@@ -60,13 +58,12 @@ namespace Pong
         {
             //Starts Game
             controller.Start();
-            //EnableDoubleBuffering();
             timer1.Enabled = true;
             startGame.Visible = false;
             quit.Visible = false;
             menuquit.Visible = false;
             highscore.Visible = false;
-            Focus(); //Focus on form not hidden buttons
+            Focus(); 
         }
 
 
@@ -89,6 +86,7 @@ namespace Pong
                     timer1.Enabled = false;
                     resume.Visible = true;
                     quit.Visible = true;
+                    
                     break;
 
 
@@ -122,7 +120,6 @@ namespace Pong
         {
            Environment.Exit(0);
         }
-
 
 
 

@@ -2,12 +2,9 @@
 {
     public  class CPUPaddle : Shapes
     {
-        private const int MOVEMENTCPU = 10; //CPU PADDLE SPEED
-        private const int MOVEDOWN = 420; //== form width
-
         private bool movementSwitch = false;
 
-        public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADWID, PADHEI)
+        public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADWID, PADHEI, MOVESPEED, HEICONTROL, HEICTRLCPU)
         {
             this.graphics = graphics;
             this.paddleP = paddleP;   
@@ -25,10 +22,10 @@
             {
              
                 case false:
-                    if (paddleP.Y + PADHEI <= MOVEDOWN)
+                    if (paddleP.Y + PADHEI <= HEICTRLCPU)
                     {
-                        paddleP.Y += MOVEMENTCPU;
-                        if (paddleP.Y + PADHEI == MOVEDOWN)
+                        paddleP.Y += MOVESPEED;
+                        if (paddleP.Y + PADHEI == HEICTRLCPU)
                         {
                             movementSwitch = true;
                         }
@@ -38,7 +35,7 @@
                 case true:
                     if (paddleP.Y != 0)
                     {
-                        paddleP.Y -= MOVEMENTCPU;
+                        paddleP.Y -= MOVESPEED;
                         {
                             if (paddleP.Y == 0)
                             {
