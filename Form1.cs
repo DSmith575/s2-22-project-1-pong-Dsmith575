@@ -3,25 +3,24 @@
  * Ball sometimes get stuck when hitting the paddles from the bottom, fixes itself when paddle no longer it's position.
  * When the ball is black it has a flicker, assuming it is due to the Rectangle brush being black
  *
+ *Could not properly call PADWID/PADHEI from paddles for the ball class (using vars in each class instead of calling, get sets were not working
+ *might have been doing them wrong)
  */
 
 namespace Pong
 {
     public partial class Form1 : Form
     {
-        private Graphics bufferGraphics;
-        private Graphics graphics;
-        private Controller controller;
-        private Image bufferImage;
-        private Ball ball;
-        private Paddle paddle;
-        private CPUPaddle paddleCPU;
+        protected Graphics bufferGraphics;
+        protected Graphics graphics;
+        protected Controller controller;
+        protected Image bufferImage;
+        protected int height;
+        protected int width;
 
-
-
-        private int height;
-        private int width;
-
+        protected Ball ball;
+        protected Paddle paddle;
+        protected CPUPaddle paddleCPU;
 
         public Form1()
         {
@@ -36,7 +35,10 @@ namespace Pong
 
             resume.Visible = false;
             quit.Visible = false;
-
+            label1.Visible = false;
+            label2.Visible = false;
+            label1.Text = 0.ToString();
+            label2.Text = 0.ToString();
 
 
             controller = new Controller(bufferGraphics, width, height, ball, paddle, paddleCPU);
@@ -44,17 +46,16 @@ namespace Pong
 
 
 
-        private void timer1_Tick(object sender, EventArgs e)
+        protected void timer1_Tick(object sender, EventArgs e)
         {
             bufferGraphics.FillRectangle(Brushes.White, 0, 0, Width, Height);
 
             controller.Run();
 
             graphics.DrawImage(bufferImage, 0, 0);
-
         }
 
-        private void startGame_Click(object sender, EventArgs e)
+        protected void startGame_Click(object sender, EventArgs e)
         {
             //Starts Game
             controller.Start();
@@ -63,11 +64,13 @@ namespace Pong
             quit.Visible = false;
             menuquit.Visible = false;
             highscore.Visible = false;
+            label1.Visible = true;
+            label2.Visible = true;
             Focus(); 
         }
 
 
-        private void Form1_KeyDown_1(object sender, KeyEventArgs e)
+        protected void Form1_KeyDown_1(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -96,7 +99,7 @@ namespace Pong
         }
 
 
-        private void resume_Click(object sender, EventArgs e)
+        protected void resume_Click(object sender, EventArgs e)
         {
             timer1.Enabled = true;
             resume.Visible = false;
@@ -104,7 +107,7 @@ namespace Pong
             Focus();
         }
 
-        private void quit_Click(object sender, EventArgs e)
+        protected void quit_Click(object sender, EventArgs e)
         {
             timer1.Enabled = false;
             resume.Visible = false;
@@ -112,11 +115,13 @@ namespace Pong
             startGame.Visible = true;
             menuquit.Visible = true;
             highscore.Visible = true;
+            label1.Visible = false;
+            label2.Visible = false;
             this.Refresh();
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        protected void button2_Click(object sender, EventArgs e)
         {
            Environment.Exit(0);
         }

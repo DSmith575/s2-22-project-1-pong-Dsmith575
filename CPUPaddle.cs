@@ -2,7 +2,7 @@
 {
     public  class CPUPaddle : Shapes
     {
-        private bool movementSwitch = false;
+        protected bool movementSwitch = false;
 
         public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADWID, PADHEI, MOVESPEED, HEICONTROL, HEICTRLCPU)
         {

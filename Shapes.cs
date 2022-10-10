@@ -14,8 +14,8 @@ namespace Pong
         protected const int PADWID = 10;
         protected const int PADHEI = 100;
         protected const int MOVESPEED = 10;
-        protected const int HEICONTROL = 400;
-        protected const int HEICTRLCPU = 420;
+        protected const int HEICONTROL = 450;
+        protected const int HEICTRLCPU = 450;
 
         public Shapes(Graphics graphics, Point paddleP, Color color, int PADWID, int PADHEI, int MOVESPEED, int HEICONTROL, int HEICTRLCPU)
         {

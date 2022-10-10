@@ -1,22 +1,30 @@
-﻿namespace Pong
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Pong
 {
     public class Ball
     {
 
-        private const int BALLSIZE = 20;
-        private const int VELOCITY = 10;
-        private const int BOUNCE = -1;
+        protected const int BALLSIZE = 20;
+        protected const int VELOCITY = 10;
+        protected const int BOUNCE = -1;
         //Used to reset balls pos
-        private const int BALLPOSX = 500;
-        private const int BALLPOSY = 200;
+        protected const int BALLPOSX = 500;
+        protected const int BALLPOSY = 200;
 
-        private Graphics graphics;
-        private Point ballP;
-        private Point velocity;
-        private Color color;
+        protected Graphics graphics;
+        protected Point ballP;
+        protected Point velocity;
+        protected Color color;
 
-        private int height;
-        private int width;
+        protected const int PADHEI = 100;
+        protected const int PADWID = 10;
+
+        protected int height;
+        protected int width;
+
+        protected Controller controller;
+        protected Form1 form1;
 
         public Ball(Graphics graphics, Point ballP, Color color, int width, int height)
         {
@@ -34,8 +42,7 @@
             { return ballP; }
         }
 
-        public int PADWID { get; private set; }
-        public int PADHEI { get; private set; }
+
 
         public void DrawBall()
         {
@@ -54,7 +61,7 @@
             if (ballP.X <= 0)
             {
                 BallReset();
-                //CPU Score
+                
             }
 
             if (ballP.X > width)
@@ -63,12 +70,14 @@
                 //Player Score
             }
 
+
             //Check ball pos to top and bottom of form and bounce
             if ((ballP.Y + BALLSIZE) >= height || ballP.Y <= 0)
             {
                 velocity.Y *= BOUNCE;
             }
         }
+
 
         public void PaddleBounce(Paddle paddle, CPUPaddle paddleCPU)
         {
@@ -80,18 +89,16 @@
                     (ballP.Y <= paddle.PaddleP.Y + PADHEI) && (ballP.Y + BALLSIZE >= paddle.PaddleP.Y)))
             {
                 VelocityShift();
+                
 
             }
         }
-
-
-
         //Changes Balls Velocity when hitting paddle
         public void VelocityShift()
         {
             velocity.Y *= BOUNCE;
             velocity.X *= BOUNCE;
-
+            
         }
 
         //Resets balls X & Y POS

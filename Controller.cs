@@ -1,24 +1,29 @@
-﻿namespace Pong
+﻿using Timer = System.Windows.Forms.Timer;
+
+namespace Pong
 {
 
     public class Controller
     {
-        private const int BALLPOSX = 500; //Ball starting pos X
-        private const int BALLPOSY = 200; //Ball starting pos Y
-        private const int PLAYPADX = 3; //Player starting pos X pos
-        private const int PLAYPADY = 100; //Player starting pos Y position
-        private const int CPUPADX = 970;
-        private const int CPUPADY = 0;
+        protected const int BALLPOSX = 500; //Ball starting pos X
+        protected const int BALLPOSY = 200; //Ball starting pos Y
+        protected const int PLAYPADX = 0; //Player starting pos X pos
+        protected const int PLAYPADY = 100; //Player starting pos Y position
+        protected const int CPUPADX = 790;
+        protected const int CPUPADY = 0;
 
-        private Graphics graphics;
-        private Ball ball;
-        private Paddle paddle;
-        private CPUPaddle paddleCPU;
+        protected Graphics graphics;
+        protected Ball ball;
+        protected Paddle paddle;
+        protected CPUPaddle paddleCPU;
 
-        private int width;
-        private int height;
-        private Random rand = new Random();
+        protected int width;
+        protected int height;
+        protected Random rand = new Random();
 
+        private int playerScore = 0;
+        private int cpuScore = 0;
+        protected Timer timer1;
 
         public Controller(Graphics graphics, int width, int height, Ball ball, Paddle paddle, CPUPaddle paddleCPU)
         {
@@ -48,6 +53,7 @@
             paddle.Draw();
             paddleCPU.Draw();
             paddleCPU.CPUPaddleMovement(ball);
+            CheckWin();
         }
 
         public void BallMove()
@@ -70,6 +76,21 @@
         public void PlayerMoveDown()
         {
             paddle.PlayerMoveDown();
+        }
+
+        public void CheckWin()
+        {
+            if (playerScore == 10)
+            {
+                timer1.Enabled = false;
+                MessageBox.Show("You Win!");
+            }
+
+            if (cpuScore == 10)
+            {
+                timer1.Enabled = false;
+                MessageBox.Show("CPU WINS");
+            }
         }
 
     }
