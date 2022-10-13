@@ -4,16 +4,20 @@
     {
         protected bool movementSwitch = false;
 
-        public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADWID, PADHEI, MOVESPEED, HEICONTROL, HEICTRLCPU)
+        public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADWID, PADHEI, MOVESPEED, HEICONTROL)
         {
             this.graphics = graphics;
             this.paddleP = paddleP;   
         }
+
+
         public override void Draw()
         {
             Brush brush = new SolidBrush(color);
             graphics.FillRectangle(brush, paddleP.X, paddleP.Y, PADWID, PADHEI);
         }
+
+
 
         public void CPUPaddleMovement(Ball ball)
         {
@@ -22,10 +26,10 @@
             {
              
                 case false:
-                    if (paddleP.Y + PADHEI <= HEICTRLCPU)
+                    if (paddleP.Y + PADHEI <= HEICONTROL)
                     {
                         paddleP.Y += MOVESPEED;
-                        if (paddleP.Y + PADHEI == HEICTRLCPU)
+                        if (paddleP.Y + PADHEI == HEICONTROL)
                         {
                             movementSwitch = true;
                         }

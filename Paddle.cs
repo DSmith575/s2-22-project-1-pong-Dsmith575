@@ -1,9 +1,11 @@
 ﻿using System.Drawing;
 namespace Pong
 {
+
+    //Player controlled paddle
     public class Paddle : Shapes
     {
-        public Paddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADHEI, PADWID, MOVESPEED, HEICONTROL, HEICTRLCPU)
+        public Paddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADHEI, PADWID, MOVESPEED, HEICONTROL)
         {
             this.graphics = graphics;
             this.paddleP = paddleP;

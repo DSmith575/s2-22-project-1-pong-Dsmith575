@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace Pong
 {
+
+    //Shape class sets up the base for drawing both paddles.
     public abstract class Shapes
     {
-        protected Graphics graphics;
-        protected Point paddleP;
-        protected Color color;
         protected const int PADWID = 10;
         protected const int PADHEI = 100;
         protected const int MOVESPEED = 10;
-        protected const int HEICONTROL = 450;
-        protected const int HEICTRLCPU = 450;
+        protected const int HEICONTROL = 320;
 
-        public Shapes(Graphics graphics, Point paddleP, Color color, int PADWID, int PADHEI, int MOVESPEED, int HEICONTROL, int HEICTRLCPU)
+        protected Graphics graphics;
+        protected Point paddleP;
+        protected Color color;
+
+
+        public Shapes(Graphics graphics, Point paddleP, Color color, int PADWID, int PADHEI, int MOVESPEED, int HEICONTROL)
         {
             this.graphics = graphics;
             this.paddleP = paddleP;

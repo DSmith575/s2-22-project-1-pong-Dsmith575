@@ -33,6 +33,7 @@
             this.menuquit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pauseLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -42,7 +43,7 @@
             // 
             // startGame
             // 
-            this.startGame.Location = new System.Drawing.Point(261, 29);
+            this.startGame.Location = new System.Drawing.Point(100, 75);
             this.startGame.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.startGame.Name = "startGame";
             this.startGame.Size = new System.Drawing.Size(246, 49);
@@ -53,7 +54,7 @@
             // 
             // resume
             // 
-            this.resume.Location = new System.Drawing.Point(292, 159);
+            this.resume.Location = new System.Drawing.Point(129, 126);
             this.resume.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.resume.Name = "resume";
             this.resume.Size = new System.Drawing.Size(191, 29);
@@ -64,7 +65,7 @@
             // 
             // quit
             // 
-            this.quit.Location = new System.Drawing.Point(292, 227);
+            this.quit.Location = new System.Drawing.Point(455, 128);
             this.quit.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.quit.Name = "quit";
             this.quit.Size = new System.Drawing.Size(191, 29);
@@ -75,7 +76,7 @@
             // 
             // highscore
             // 
-            this.highscore.Location = new System.Drawing.Point(351, 132);
+            this.highscore.Location = new System.Drawing.Point(351, 90);
             this.highscore.Name = "highscore";
             this.highscore.Size = new System.Drawing.Size(75, 23);
             this.highscore.TabIndex = 3;
@@ -84,7 +85,7 @@
             // 
             // menuquit
             // 
-            this.menuquit.Location = new System.Drawing.Point(261, 286);
+            this.menuquit.Location = new System.Drawing.Point(432, 75);
             this.menuquit.Name = "menuquit";
             this.menuquit.Size = new System.Drawing.Size(246, 49);
             this.menuquit.TabIndex = 4;
@@ -95,7 +96,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(290, 200);
+            this.label1.Location = new System.Drawing.Point(200, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 5;
@@ -104,18 +105,29 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(440, 200);
+            this.label2.BackColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(537, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "label2";
+            // 
+            // pauseLabel
+            // 
+            this.pauseLabel.AutoSize = true;
+            this.pauseLabel.Location = new System.Drawing.Point(375, -1);
+            this.pauseLabel.Name = "pauseLabel";
+            this.pauseLabel.Size = new System.Drawing.Size(51, 15);
+            this.pauseLabel.TabIndex = 7;
+            this.pauseLabel.Text = "P: Pause";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 161);
+            this.Controls.Add(this.pauseLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuquit);
@@ -124,14 +136,12 @@
             this.Controls.Add(this.resume);
             this.Controls.Add(this.startGame);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(800, 450);
-            this.MinimumSize = new System.Drawing.Size(800, 450);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.TopMost = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -146,8 +156,9 @@
         protected Button quit;
         protected Button highscore;
         protected Button menuquit;
-        private Label label1;
         private System.ComponentModel.IContainer components;
-        private Label label2;
+        private Label pauseLabel;
+        public Label label1;
+        public Label label2;
     }
 }

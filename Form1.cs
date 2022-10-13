@@ -7,6 +7,10 @@
  *might have been doing them wrong)
  */
 
+using System.Media;
+using System.Net.Sockets;
+using System.Security.Cryptography;
+
 namespace Pong
 {
     public partial class Form1 : Form
@@ -21,6 +25,9 @@ namespace Pong
         protected Ball ball;
         protected Paddle paddle;
         protected CPUPaddle paddleCPU;
+        protected Scores score;
+
+
 
         public Form1()
         {
@@ -37,12 +44,14 @@ namespace Pong
             quit.Visible = false;
             label1.Visible = false;
             label2.Visible = false;
-            label1.Text = 0.ToString();
-            label2.Text = 0.ToString();
+
+            controller = new Controller(bufferGraphics, width, height, ball, paddle, paddleCPU, timer1, label1, label2);
+            //label1.Text = score.LabelOne;
+            //label2.Text = score.LabelTwo;
 
 
-            controller = new Controller(bufferGraphics, width, height, ball, paddle, paddleCPU);
         }
+
 
 
 
@@ -53,20 +62,16 @@ namespace Pong
             controller.Run();
 
             graphics.DrawImage(bufferImage, 0, 0);
+
+
         }
 
         protected void startGame_Click(object sender, EventArgs e)
         {
             //Starts Game
             controller.Start();
-            timer1.Enabled = true;
-            startGame.Visible = false;
-            quit.Visible = false;
-            menuquit.Visible = false;
-            highscore.Visible = false;
-            label1.Visible = true;
-            label2.Visible = true;
-            Focus(); 
+            timerStart();
+            Focus();
         }
 
 
@@ -101,13 +106,41 @@ namespace Pong
 
         protected void resume_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
-            resume.Visible = false;
-            quit.Visible = false;
+            resumeGame();
             Focus();
         }
 
         protected void quit_Click(object sender, EventArgs e)
+        {
+            menuReturn();
+
+        }
+
+        protected void button2_Click(object sender, EventArgs e)
+        {
+           Environment.Exit(0);
+        }
+
+        public void timerStart()
+        {
+            timer1.Enabled = true;
+            startGame.Visible = false;
+            quit.Visible = false;
+            menuquit.Visible = false;
+            highscore.Visible = false;
+            label1.Visible = true;
+            label2.Visible = true;
+
+        }
+
+        public void resumeGame()
+        {
+            timer1.Enabled = true;
+            resume.Visible = false;
+            quit.Visible = false;
+        }
+
+        public void menuReturn()
         {
             timer1.Enabled = false;
             resume.Visible = false;
@@ -118,12 +151,6 @@ namespace Pong
             label1.Visible = false;
             label2.Visible = false;
             this.Refresh();
-
-        }
-
-        protected void button2_Click(object sender, EventArgs e)
-        {
-           Environment.Exit(0);
         }
 
 
