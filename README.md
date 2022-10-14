@@ -24,3 +24,9 @@ Audio Used:
 <br>
 https://undertale-resources.tumblr.com/categories
 <br>
+<br>
+Appending new lines to streamwriter
+<br>
+https://stackoverflow.com/questions/7306214/append-lines-to-a-file-using-a-streamwriter
+<br>
+(Second answer)

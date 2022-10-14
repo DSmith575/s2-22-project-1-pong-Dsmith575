@@ -1,4 +1,5 @@
-﻿using System.Media;
+﻿using System.Configuration;
+using System.Media;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using Timer = System.Windows.Forms.Timer;
@@ -14,13 +15,13 @@ namespace Pong
         protected const int PLAYPADY = 100; //Player starting pos Y position
         protected const int CPUPADX = 12;
         protected const int CPUPADY = 0;
-        protected const int MAXGAMESCORE = 3; //Controls how many points required to finish the game
+        protected const int MAXGAMESCORE = 1; //Controls how many points required to finish the game
 
         protected Graphics graphics;
         protected Ball ball;
         protected Paddle paddle;
         protected CPUPaddle paddleCPU;
-        protected Scores scores = new Scores();
+        protected Scores scores;
         protected Random rand = new Random();
         protected Timer timer1;
         protected Label label1;
@@ -52,6 +53,7 @@ namespace Pong
             ball = new Ball(graphics, new Point(BALLPOSX, BALLPOSY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)), width, height);
             paddle = new Paddle(graphics, new Point(PLAYPADX, PLAYPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
             paddleCPU = new CPUPaddle(graphics, new Point(width - CPUPADX, CPUPADY), Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)));
+            scores = new Scores();
             playerScore = 0;
             cpuScore = 0;
         }
@@ -86,6 +88,7 @@ namespace Pong
         public void PlayerMoveUp()
         {
             paddle.PlayerMoveUp();
+
         }
 
         public void PlayerMoveDown()
@@ -100,6 +103,8 @@ namespace Pong
                     {
                 timer1.Enabled = false;
                 MessageBox.Show("You Win!");
+                //scores.WriteScoreToFile();
+                scores.StoreScores(label1.Text, label2.Text);
                 GameEnd();
             }
 
@@ -107,7 +112,9 @@ namespace Pong
             {
                 timer1.Enabled = false;
                 MessageBox.Show("CPU WINS");
+                //scores.WriteScoreToFile();
                 GameEnd();
+                
 
             }
         }
@@ -116,6 +123,7 @@ namespace Pong
         { 
             Application.Restart();
         }
+
 
     }
 }

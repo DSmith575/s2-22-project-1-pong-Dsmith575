@@ -82,6 +82,7 @@
             this.highscore.TabIndex = 3;
             this.highscore.Text = "Highscores";
             this.highscore.UseVisualStyleBackColor = true;
+            this.highscore.Click += new System.EventHandler(this.highscore_Click);
             // 
             // menuquit
             // 
