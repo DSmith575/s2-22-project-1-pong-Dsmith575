@@ -9,15 +9,11 @@
             this.graphics = graphics;
             this.paddleP = paddleP;   
         }
-
-
         public override void Draw()
         {
             Brush brush = new SolidBrush(color);
             graphics.FillRectangle(brush, paddleP.X, paddleP.Y, PADWID, PADHEI);
         }
-
-
 
         public void CPUPaddleMovement(Ball ball)
         {

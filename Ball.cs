@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System.Media;
+using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using static System.Formats.Asn1.AsnWriter;
 
@@ -22,12 +23,12 @@ namespace Pong
 
         protected int playerScore;
         protected int cpuScore;
-
         protected int height;
         protected int width;
 
-        protected Scores scores = new Scores();
-
+        protected SoundPlayer paddleBounceSfx = new SoundPlayer(Properties.Resources.sfxS);
+        protected SoundPlayer winSfx = new SoundPlayer(Properties.Resources.sfxA);
+        protected SoundPlayer loseSfx = new SoundPlayer(Properties.Resources.sfxU);
 
         public Ball(Graphics graphics, Point ballP, Color color, int width, int height)
         {
@@ -46,8 +47,6 @@ namespace Pong
             { return ballP; }
         }
 
-
-
         public void DrawBall()
         {
             Brush brush = new SolidBrush(color);
@@ -61,55 +60,54 @@ namespace Pong
             ballP.Y += velocity.Y;
         }
 
-
-        public int BouncePlayerSide(int pScore)
+        public int BouncePlayerSide(int cScore)
         {
             if (ballP.X <= 0)
             {
                 //Checks if ball is < left side of screen
                 BallReset();
-                pScore++;
-
+                loseSfx.Play();
+                cScore++;
             }
-            return pScore;
+            return cScore;
         }
 
-        public int BounceCpuSide(int cScore)
+        public int BounceCpuSide(int pScore)
         {
             if (ballP.X > width)
             {
                 //Checks if ball > right side of screen and resets
-
+                winSfx.Play();
                 BallReset();
-                cScore++;
-
+                
+                pScore++;
             }
-            return cScore;
+            return pScore;
         }
 
         public void FormBounce()
         {
             if ((ballP.Y + BALLSIZE) >= height || ballP.Y <= 0)
             {
+                paddleBounceSfx.Play();
                 velocity.Y *= BOUNCE;
             }
+
         }
-
-
-
 
         public void PaddleBounce(Paddle paddle, CPUPaddle paddleCPU)
         {
             //Checks pos of ball and paddles and if true bounces the ball back
             if ((ballP.X <= paddleCPU.PaddleP.X + PADWID) && (ballP.X + BALLSIZE >= paddleCPU.PaddleP.X) &&
                     (ballP.Y <= paddleCPU.PaddleP.Y + PADHEI) && (ballP.Y + BALLSIZE >= paddleCPU.PaddleP.Y)
+
                     ||
+
                     ((ballP.X <= paddle.PaddleP.X + PADWID) && (ballP.X + BALLSIZE >= paddle.PaddleP.X) &&
                     (ballP.Y <= paddle.PaddleP.Y + PADHEI) && (ballP.Y + BALLSIZE >= paddle.PaddleP.Y)))
             {
+                paddleBounceSfx.Play();
                 VelocityShift();
-                
-
             }
         }
         //Changes Balls Velocity when hitting paddle
@@ -117,7 +115,6 @@ namespace Pong
         {
             velocity.Y *= BOUNCE;
             velocity.X *= BOUNCE;
-            
         }
 
         //Resets balls X & Y POS
@@ -127,7 +124,6 @@ namespace Pong
             ballP.Y = BALLPOSY;
             velocity.X *= BOUNCE;
         }
-
 
     }
 }

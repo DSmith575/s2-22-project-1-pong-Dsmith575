@@ -10,7 +10,6 @@ namespace Pong
             this.graphics = graphics;
             this.paddleP = paddleP;
         }
-
         public void PlayerMoveUp()
         {
             if (paddleP.Y > 0)
