@@ -1,52 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Pong.Ball">
-    <Position X="13.5" Y="0.5" Width="1.5" />
+    <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQIQAIQAAAAhA4gQAAiAAgAgAAAAAiAgAQAAAACIAA=</HashCode>
+      <HashCode>ABQIQAAQAAAAhAaEUAAiAAgAggAIAAiAgAQIAAACIAE=</HashCode>
       <FileName>Ball.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pong.Controller">
-    <Position X="11.75" Y="0.5" Width="1.5" />
+    <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgIAQACAAAAQAQGAAAIAAAAABQQgAgAQAAgAACAI=</HashCode>
+      <HashCode>CAQAgIAQACAAABSFQGAIAIAAAAABQQgAgAQAAgAACAI=</HashCode>
       <FileName>Controller.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pong.CPUPaddle">
-    <Position X="1.25" Y="1.5" Width="1.5" />
+    <Position X="4" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAACBAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CPUPaddle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pong.Form1">
-    <Position X="8.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>KAwAgAAAICAAIAUAQiCAACECAAAAIAgAACQhAgAAAAA=</HashCode>
-      <FileName>Form1.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Pong.Paddle">
-    <Position X="5.75" Y="1.5" Width="1.5" />
+    <Position X="0.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAABQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Paddle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pong.Scores" Collapsed="true">
-    <Position X="10" Y="0.5" Width="1.5" />
+  <Class Name="Pong.Scores">
+    <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAABIAAAAEAAAAAAAACAIIEEAACACAAEAAAAAAA=</HashCode>
       <FileName>Scores.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pong.Shapes">
-    <Position X="3.75" Y="1" Width="1.5" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAQAACAAAAAgAAAAAAAggAAAAAAAiAAAAQAAAAAAA=</HashCode>
       <FileName>Shapes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.Form1">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAxAgAAAACIAIBUAQiCIECECAAAAoAgEACQhAgAAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

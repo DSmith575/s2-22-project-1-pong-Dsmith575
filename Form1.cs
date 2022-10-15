@@ -53,6 +53,7 @@ namespace Pong
 
         public void FormLoader()
         {
+            //Set form up at runtime
             bufferImage = new Bitmap(Width, Height);
             bufferGraphics = Graphics.FromImage(bufferImage);
             graphics = CreateGraphics();

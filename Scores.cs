@@ -16,10 +16,11 @@ namespace Pong
 
         //Shifts the lineReader array to the left to make room for new highscores
         protected string[] lineReaderShift = new string[MAXSCORELIST];
-        protected int lineCount; //variable for n lines in txt file
         protected string pFinalScore = " ";
         protected string cFinalScore = " ";
         protected string highScoreDisplay = " ";
+
+        protected int lineCount; //variable for n lines in txt file
 
 
 
@@ -63,7 +64,6 @@ namespace Pong
                 for (int i = 1; i < lineReader.Length; i++)
                 {
                     lineReaderShift[i - 1] = lineReader[i];
-
                 }
 
                 //Adds the latest score to the last slot of the array
