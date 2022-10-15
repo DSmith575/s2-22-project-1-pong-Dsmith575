@@ -154,10 +154,5 @@ namespace Pong
         {
            Environment.Exit(0);
         }
-
-        private void highscore_Click(object sender, EventArgs e)
-        {
-            score.LoadScoreToMessageBox();
-        }
     }
 }

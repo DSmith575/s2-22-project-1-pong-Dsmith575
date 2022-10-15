@@ -30,3 +30,10 @@ Appending new lines to streamwriter
 https://stackoverflow.com/questions/7306214/append-lines-to-a-file-using-a-streamwriter
 <br>
 (Second answer)
+<br>
+<br>
+Using file.ReadAllLines to parse txt file
+<br>
+https://stackoverflow.com/questions/12633815/lines-of-a-streamreader-to-an-array-of-string
+<br>
+(Second answer - Update)

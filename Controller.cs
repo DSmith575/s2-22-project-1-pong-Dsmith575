@@ -84,6 +84,7 @@ namespace Pong
             paddleCPU.Draw();
         }
 
+
         //PLAYER MOVEMENT
         public void PlayerMoveUp()
         {
@@ -104,7 +105,7 @@ namespace Pong
                 timer1.Enabled = false;
                 MessageBox.Show("You Win!");
                 //scores.WriteScoreToFile();
-                scores.StoreScores(label1.Text, label2.Text);
+                ScoreSetter();
                 GameEnd();
             }
 
@@ -112,11 +113,18 @@ namespace Pong
             {
                 timer1.Enabled = false;
                 MessageBox.Show("CPU WINS");
-                //scores.WriteScoreToFile();
+                ScoreSetter();
                 GameEnd();
                 
 
             }
+        }
+
+
+        public void ScoreSetter()
+        {
+            scores.StoreScores(label1.Text, label2.Text);
+            scores.LoadScoreToMessageBox();
         }
 
         public void GameEnd()
