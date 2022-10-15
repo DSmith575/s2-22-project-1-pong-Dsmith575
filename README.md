@@ -1,3 +1,7 @@
+# Diagram
+<br>
+<img src ="ClassDiagram1.png">
+
 # References
 <br>
 Adding and using audio files
