@@ -43,7 +43,7 @@ namespace Pong
 
         public Point BallP
         {
-            get 
+            get
             { return ballP; }
         }
 
@@ -79,7 +79,7 @@ namespace Pong
                 //Checks if ball > right side of screen and resets
                 winSfx.Play();
                 BallReset();
-                
+
                 pScore++;
             }
             return pScore;

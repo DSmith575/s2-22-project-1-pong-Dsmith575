@@ -1,7 +1,7 @@
 /* Program name:          Pong
  * Project file name:     Pong
  * Author:                Deacon Smith
- * Date:                  05/09/17
+ * Date:                  
  * Language:              C#
  * Platform:              Microsoft Visual Studio 2022
  *
@@ -72,7 +72,6 @@ namespace Pong
             startGame.Visible = false;
             quit.Visible = false;
             menuquit.Visible = false;
-            highscore.Visible = false;
             label1.Visible = true;
             label2.Visible = true;
         }
@@ -91,7 +90,6 @@ namespace Pong
             quit.Visible = false;
             startGame.Visible = true;
             menuquit.Visible = true;
-            highscore.Visible = true;
             label1.Visible = false;
             label2.Visible = false;
             this.Refresh();
@@ -131,7 +129,7 @@ namespace Pong
                 case Keys.P:
                     timer1.Enabled = false;
                     resume.Visible = true;
-                    quit.Visible = true;          
+                    quit.Visible = true;
                     break;
 
                 default:
@@ -152,7 +150,7 @@ namespace Pong
 
         protected void button2_Click(object sender, EventArgs e)
         {
-           Environment.Exit(0);
+            Environment.Exit(0);
         }
     }
 }

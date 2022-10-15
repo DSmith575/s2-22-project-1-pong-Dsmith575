@@ -101,7 +101,7 @@ namespace Pong
         {
             //Checks current value of labels
             if (Convert.ToInt32(label1.Text) == MAXGAMESCORE)
-                    {
+            {
                 timer1.Enabled = false;
                 MessageBox.Show("You Win!");
                 //scores.WriteScoreToFile();
@@ -115,7 +115,7 @@ namespace Pong
                 MessageBox.Show("CPU WINS");
                 ScoreSetter();
                 GameEnd();
-                
+
 
             }
         }
@@ -124,11 +124,10 @@ namespace Pong
         public void ScoreSetter()
         {
             scores.StoreScores(label1.Text, label2.Text);
-            scores.LoadScoreToMessageBox();
         }
 
         public void GameEnd()
-        { 
+        {
             Application.Restart();
         }
 

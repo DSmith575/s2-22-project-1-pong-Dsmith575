@@ -13,9 +13,10 @@ namespace Pong
     {
         protected const int MAXSCORELIST = 5;
         protected string[] addScore = new string[1];
-        protected string[] scoreBoard = new string[1];
 
-
+        //Shifts the lineReader array to the left to make room for new highscores
+        protected string[] lineReaderShift = new string[MAXSCORELIST];
+        protected int lineCount; //variable for n lines in txt file
         protected string pFinalScore = " ";
         protected string cFinalScore = " ";
         protected string highScoreDisplay = " ";
@@ -28,42 +29,62 @@ namespace Pong
             pFinalScore = playScore;
             cFinalScore = cpuScore;
             addScore[0] = $"Player: {pFinalScore} | CPU: {cFinalScore}";
-            MessageBox.Show(addScore[0]);
+            string finalScore = "Final Score!";
+            MessageBox.Show(addScore[0], finalScore);
             SaveScores();
+            LoadScoreToMessageBox();
         }
+
+        public void CreateScoreBoard()
+        {
+            StreamWriter sw = new StreamWriter(@"../../HighScores.txt");
+            sw.Close();
+        }
+
 
         //Writes from array to text file.
         public void SaveScores()
         {
-            StreamWriter sw = new StreamWriter(@"../../HighScores.txt", true);
-            //int lineCount = File.ReadAllLines(@"../../HighScores.txt").Length;
-            //if (lineCount < MAXSCORELIST)
-            //{
+            //Checks how many lines there are in txt file and stores in variable
+            lineCount = File.ReadAllLines(@"../../HighScores.txt").Count();
+
+            if (lineCount < MAXSCORELIST) //If less than 5 lines, appends file to insert new value(score)
+            {
+                StreamWriter sw = new StreamWriter(@"../../HighScores.txt", true);
                 sw.WriteLine($"{addScore[0]}");
                 sw.Close();
-            //}
-            
+            }
 
+            if (lineCount >= MAXSCORELIST) //If there are more than 5 lines of text, sorts the arrays into a new array shifted left (remove first line)
+            {
 
+                string[] lineReader = File.ReadAllLines(@"../../HighScores.txt");
+
+                for (int i = 1; i < lineReader.Length; i++)
+                {
+                    lineReaderShift[i - 1] = lineReader[i];
+
+                }
+
+                //Adds the latest score to the last slot of the array
+                lineReaderShift[4] = addScore[0];
+
+                StreamWriter sw = new StreamWriter(@"../../HighScores.txt");
+                {
+                    for (int i = 0; i < lineReaderShift.Length; i++)
+                    {
+                        sw.WriteLine(lineReaderShift[i]);
+                    }
+                }
+                sw.Close();
+            }
         }
-       
+
         public void LoadScoreToMessageBox()
         {
-            scoreBoard = File.ReadLines(@"../../HighScores.txt").ToArray();
-            highScoreDisplay = string.Join(Environment.NewLine, scoreBoard);
-            MessageBox.Show(highScoreDisplay);
-
+            string displayScores = string.Join(Environment.NewLine, lineReaderShift);
+            string scoreBoard = "ScoreBoard";
+            MessageBox.Show(displayScores, scoreBoard);
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }

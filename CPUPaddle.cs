@@ -1,13 +1,13 @@
 ﻿namespace Pong
 {
-    public  class CPUPaddle : Shapes
+    public class CPUPaddle : Shapes
     {
         protected bool movementSwitch = false;
 
         public CPUPaddle(Graphics graphics, Point paddleP, Color color) : base(graphics, paddleP, color, PADWID, PADHEI, MOVESPEED, HEICONTROL)
         {
             this.graphics = graphics;
-            this.paddleP = paddleP;   
+            this.paddleP = paddleP;
         }
         public override void Draw()
         {
@@ -20,7 +20,7 @@
             //Bool switch to determine which way the CPU will move.
             switch (movementSwitch)
             {
-             
+
                 case false:
                     if (paddleP.Y + PADHEI <= HEICONTROL)
                     {
