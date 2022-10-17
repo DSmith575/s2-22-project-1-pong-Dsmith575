@@ -15,7 +15,7 @@ namespace Pong
         protected const int PLAYPADY = 100; //Player starting pos Y position
         protected const int CPUPADX = 12;
         protected const int CPUPADY = 0;
-        protected const int MAXGAMESCORE = 1; //Controls how many points required to finish the game
+        protected const int MAXGAMESCORE = 10; //Controls how many points required to finish the game
 
         protected Graphics graphics;
         protected Ball ball;
@@ -43,9 +43,7 @@ namespace Pong
             this.paddleCPU = paddleCPU;
             this.label1 = label1;
             this.label2 = label2;
-
         }
-
 
         public void Start()
         {
@@ -71,8 +69,6 @@ namespace Pong
             CheckWin();
         }
 
-
-
         public void BallMove()
         {
             playerScore = ball.BounceCpuSide(playerScore);
@@ -89,7 +85,6 @@ namespace Pong
         public void PlayerMoveUp()
         {
             paddle.PlayerMoveUp();
-
         }
 
         public void PlayerMoveDown()
@@ -99,12 +94,11 @@ namespace Pong
 
         public void CheckWin()
         {
-            //Checks current value of labels
+            //Converts label1 & 2 to int and checks if equal to max score limit (10)
             if (Convert.ToInt32(label1.Text) == MAXGAMESCORE)
             {
                 timer1.Enabled = false;
                 MessageBox.Show("You Win!");
-                //scores.WriteScoreToFile();
                 ScoreSetter();
                 GameEnd();
             }
@@ -115,12 +109,10 @@ namespace Pong
                 MessageBox.Show("CPU WINS");
                 ScoreSetter();
                 GameEnd();
-
-
             }
         }
 
-
+        //Set scores in Score class 
         public void ScoreSetter()
         {
             scores.StoreScores(label1.Text, label2.Text);
@@ -130,6 +122,7 @@ namespace Pong
         {
             Application.Restart();
         }
+
 
 
     }

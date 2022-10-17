@@ -41,3 +41,8 @@ Using file.ReadAllLines to parse txt file
 https://stackoverflow.com/questions/12633815/lines-of-a-streamreader-to-an-array-of-string
 <br>
 (Second answer - Update)
+<br>
+<br>
+format string
+<br>
+https://stackoverflow.com/questions/14140084/best-way-to-append-newline-to-string-except-for-last

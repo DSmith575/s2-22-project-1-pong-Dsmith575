@@ -14,7 +14,7 @@ namespace Pong
         protected const int BOUNCE = -1;
         //Used to reset balls pos
         protected const int BALLPOSX = 500;
-        protected const int BALLPOSY = 200;
+        protected const int BALLPOSY = 100;
 
         protected Graphics graphics;
         protected Point ballP;
@@ -85,7 +85,7 @@ namespace Pong
             return pScore;
         }
 
-        public void FormBounce()
+        public void FormBounce() //Check if ball touches top or bottom of form
         {
             if ((ballP.Y + BALLSIZE) >= height || ballP.Y <= 0)
             {

@@ -12,6 +12,7 @@ namespace Pong
     public class Scores
     {
         protected const int MAXSCORELIST = 5;
+        protected const int NEWSCORE = 4; //Array position for inserting newest score to txt file
         protected string[] addScore = new string[1];
 
         //Shifts the lineReader array to the left to make room for new highscores
@@ -21,8 +22,6 @@ namespace Pong
         protected string highScoreDisplay = " ";
 
         protected int lineCount; //variable for n lines in txt file
-
-
 
         //Pulls the variables from controller class and adds them to an array
         public void StoreScores(string playScore, string cpuScore)
@@ -36,6 +35,7 @@ namespace Pong
             LoadScoreToMessageBox();
         }
 
+        //Creates on startup if no file exists
         public void CreateScoreBoard()
         {
             StreamWriter sw = new StreamWriter(@"../../HighScores.txt");
@@ -67,7 +67,7 @@ namespace Pong
                 }
 
                 //Adds the latest score to the last slot of the array
-                lineReaderShift[4] = addScore[0];
+                lineReaderShift[NEWSCORE] = addScore[0];
 
                 StreamWriter sw = new StreamWriter(@"../../HighScores.txt");
                 {

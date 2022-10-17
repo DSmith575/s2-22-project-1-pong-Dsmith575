@@ -42,7 +42,7 @@
             // 
             // startGame
             // 
-            this.startGame.Location = new System.Drawing.Point(100, 75);
+            this.startGame.Location = new System.Drawing.Point(133, 155);
             this.startGame.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.startGame.Name = "startGame";
             this.startGame.Size = new System.Drawing.Size(246, 49);
@@ -53,7 +53,7 @@
             // 
             // resume
             // 
-            this.resume.Location = new System.Drawing.Point(129, 126);
+            this.resume.Location = new System.Drawing.Point(133, 208);
             this.resume.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.resume.Name = "resume";
             this.resume.Size = new System.Drawing.Size(191, 29);
@@ -64,7 +64,7 @@
             // 
             // quit
             // 
-            this.quit.Location = new System.Drawing.Point(455, 128);
+            this.quit.Location = new System.Drawing.Point(641, 208);
             this.quit.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.quit.Name = "quit";
             this.quit.Size = new System.Drawing.Size(191, 29);
@@ -75,7 +75,7 @@
             // 
             // menuquit
             // 
-            this.menuquit.Location = new System.Drawing.Point(432, 75);
+            this.menuquit.Location = new System.Drawing.Point(586, 155);
             this.menuquit.Name = "menuquit";
             this.menuquit.Size = new System.Drawing.Size(246, 49);
             this.menuquit.TabIndex = 4;
@@ -86,7 +86,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(200, 57);
+            this.label1.Location = new System.Drawing.Point(375, 128);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(537, 57);
+            this.label2.Location = new System.Drawing.Point(549, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 6;
@@ -105,7 +105,7 @@
             // pauseLabel
             // 
             this.pauseLabel.AutoSize = true;
-            this.pauseLabel.Location = new System.Drawing.Point(375, -1);
+            this.pauseLabel.Location = new System.Drawing.Point(478, 9);
             this.pauseLabel.Name = "pauseLabel";
             this.pauseLabel.Size = new System.Drawing.Size(51, 15);
             this.pauseLabel.TabIndex = 7;
@@ -116,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(784, 161);
+            this.ClientSize = new System.Drawing.Size(984, 361);
             this.Controls.Add(this.pauseLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

@@ -75,6 +75,7 @@ namespace Pong
             menuquit.Visible = false;
             label1.Visible = true;
             label2.Visible = true;
+            pauseLabel.Visible = true;
         }
 
         public void ResumeGame()
@@ -93,6 +94,7 @@ namespace Pong
             menuquit.Visible = true;
             label1.Visible = false;
             label2.Visible = false;
+            pauseLabel.Visible = false;
             this.Refresh();
         }
 
