@@ -16,29 +16,33 @@ namespace Pong
         protected string[] addScore = new string[1];
 
         //Shifts the lineReader array to the left to make room for new highscores
+        protected string[] lineReader = new string[MAXSCORELIST];
         protected string[] lineReaderShift = new string[MAXSCORELIST];
         protected string pFinalScore = " ";
         protected string cFinalScore = " ";
         protected string highScoreDisplay = " ";
+        protected string displayScores = " ";
 
         protected int lineCount; //variable for n lines in txt file
 
         //Pulls the variables from controller class and adds them to an array
         public void StoreScores(string playScore, string cpuScore)
         {
+            CreateScoreBoard();
             pFinalScore = playScore;
             cFinalScore = cpuScore;
             addScore[0] = $"Player: {pFinalScore} | CPU: {cFinalScore}";
             string finalScore = "Final Score!";
             MessageBox.Show(addScore[0], finalScore);
             SaveScores();
-            LoadScoreToMessageBox();
+            LoadScoreToMessageBoxHighScores();
+
         }
 
         //Creates on startup if no file exists
         public void CreateScoreBoard()
         {
-            StreamWriter sw = new StreamWriter(@"../../HighScores.txt");
+            StreamWriter sw = new StreamWriter(@"../../HighScores.txt", true);
             sw.Close();
         }
 
@@ -59,7 +63,7 @@ namespace Pong
             if (lineCount >= MAXSCORELIST) //If there are more than 5 lines of text, sorts the arrays into a new array shifted left (remove first line)
             {
 
-                string[] lineReader = File.ReadAllLines(@"../../HighScores.txt");
+                lineReader = File.ReadAllLines(@"../../HighScores.txt");
 
                 for (int i = 1; i < lineReader.Length; i++)
                 {
@@ -80,11 +84,25 @@ namespace Pong
             }
         }
 
-        public void LoadScoreToMessageBox()
+
+        public void LoadScoreToMessageBoxHighScores()
         {
-            string displayScores = string.Join(Environment.NewLine, lineReaderShift);
-            string scoreBoard = "ScoreBoard";
-            MessageBox.Show(displayScores, scoreBoard);
+            if (lineCount < MAXSCORELIST)
+            {
+                lineReader = File.ReadAllLines(@"../../HighScores.txt");
+
+                displayScores = string.Join(Environment.NewLine, lineReader);
+                string scoreBoard = "ScoreBoard";
+                MessageBox.Show(displayScores, scoreBoard);
+            }
+            else if (lineCount >= MAXSCORELIST)
+            {
+                displayScores = string.Join(Environment.NewLine, lineReaderShift);
+                string scoreBoard = "ScoreBoard";
+                MessageBox.Show(displayScores, scoreBoard);
+            }
+
+
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Pong
         protected const int PLAYPADY = 100; //Player starting pos Y position
         protected const int CPUPADX = 12;
         protected const int CPUPADY = 0;
-        protected const int MAXGAMESCORE = 10; //Controls how many points required to finish the game
+        protected const int MAXGAMESCORE = 1; //Controls how many points required to finish the game
 
         protected Graphics graphics;
         protected Ball ball;
